@@ -91,6 +91,10 @@ ul li.job-container {
 	list-style: none;
 	padding: 0 15px;
 }
+a.save-job {
+	color: white;
+}
+
 // button styles
 a.btn {
 	border: 1px solid white;
@@ -488,6 +492,34 @@ a.btn {
 			background-repeat: no-repeat;
 			background-position: top;
 			display: inline-block;
+		}
+	}
+	.postcard-gallery {
+		max-width: 980px;
+		width: 100%;
+		margin: 0 auto;
+		position: relative;
+		.main {
+			overflow: hidden;
+			height: 500px;
+			img {
+				width: 100%;
+			}
+		}
+		.subone {
+			left: -30%;
+		}
+		.subtwo {
+			right: -3%;
+		}
+		.subone, .subtwo {
+			position: absolute;
+			border: 5px solid white;
+			z-index: 500;
+			max-width: 350px;
+			img {
+				width: 100%;
+			}
 		}
 	}
 }
@@ -993,6 +1025,14 @@ a.btn {
 			height: 191px;
 		}
 	}
+	.postcard-gallery {
+		.main {
+			height: auto;
+		}
+		.subone, .subtwo {
+			display: none;
+		}
+	}
 }
 
 .slider {
@@ -1019,10 +1059,12 @@ a.btn {
 	display: none;
 }
 
+
 .job-container {
 	padding: 0px;
 	margin-bottom: 15px;
 	list-style: none;
+
 	.job.card {
 		overflow: hidden;
 		.border {

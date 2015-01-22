@@ -315,7 +315,13 @@ angular.module('womenInAdf')
       }
     ];
 
-
+    $scope.postcards = {
+      main:  'love1.jpg',
+      subone:  'love2.jpg',
+      subtwo:  'love3.jpg',
+      header: 'LEAD THE WAY',
+      text:  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod libero purus, sed tempor purus consectetur ut. Ut ac pretium sem, quis malesuada quam. Donec vestibulum tortor ac leo consequat malesuada vel non risus. Quisque molestie aliquet laoreet. Aenean vel elementum ex. Vivamus diam ex, consequat nec volutpat a, accumsan faucibus ante. Maecenas non tincidunt elit, et dictum orci. Donec fermentum libero eget scelerisque convallis. Vestibulum mi libero, porta id dignissim at, placerat eget magna.'
+    };
 
   
 });
@@ -476,6 +482,19 @@ angular.module('womenInAdf').directive('jobCard', function ($timeout) {
             };
         };
        
+    }
+  }
+});
+
+angular.module('womenInAdf').directive('parallax', function ($timeout) {
+  console.log('parallax directive loaded');
+  return {
+    link: function ($scope, element, attrs, jobEntryKey) {
+        
+
+       
+          var s = skrollr.init();
+        
     }
   }
 });

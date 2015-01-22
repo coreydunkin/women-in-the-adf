@@ -15,7 +15,8 @@
     "angular-smoothscroll" : "1.1.x",
     "greensock-js" : "1.10.x",
     "animate.css" : "3.2.x",
-    "angular-flexslider" : "1.3.x"
+    "angular-flexslider" : "1.3.x",
+    "angular-skrollr-directive" : "1.0.x"
   },
   "devDependencies": {
     "angular-mocks": "1.2.x"

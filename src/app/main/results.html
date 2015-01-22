@@ -24,7 +24,7 @@
 
   <p class="summary">As part of the Australian Defence Force you’ll get the opportunity to work all over the world from the Solomon Islands to Afghanistan, even Scotland, and see more of Australia than most Aussies.</p>
 
-  <h3 class="roles-header">WE THINK YOU'll LOVE THESE ROLES:</h3>
+  <h3 class="roles-header">WE THINK YOU'LL LOVE THESE ROLES:</h3>
 
   <div class="rolescontainer">
     <ul>
@@ -77,7 +77,7 @@
                     <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
                                       <span class="icon-star"></span>
                                       <span class="text">
-              <a href="javascript:;">SAVE THIS JOB</a>
+              <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
           </span>
                                   </a>
 
@@ -157,20 +157,21 @@
 </div>  
 
 
-<div class="postcard-gallery">
-  <div class="main">
+<div class="postcard-gallery" parallax>
+  <div class="main" class="col-md-12">
     <img src="assets/images/{{postcards.main}}" alt="">
   </div>
 
-  <h2>{{ postcards.header }}</h2>
-
-  <div class="subone">
+  <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
     <img src="assets/images/{{postcards.subone}}" alt="">
   </div>
-  <div class="subtwo">
-    <img src="assets/images/{{postcards.subone}}" alt="">
+  <div class="subtwo" data-1000="top:-5%;" data-2500="top:110%;">
+    <img src="assets/images/{{postcards.subtwo}}" alt="">
   </div>
-
+  <div class="copy col-md-7">
+    <h2>{{ postcards.header }}</h2>
+    <p>{{postcards.text}}</p>    
+  </div>
 
 
 </div>
