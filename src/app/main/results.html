@@ -190,6 +190,7 @@
         <div class="title col-md-8"><h3>SEE YOUR ROLES</h3></div>
         <div filterDir class="filter col-md-4">
           <select name="filterjobs" id="filterjobs" ng-change="filterJob()" ng-model="form.type" value="All">
+            
             <option ng-repeat="job in filters[&quot;'Jobs'&quot;]" value="{{job}}">{{job}}</option>
 
           </select>
