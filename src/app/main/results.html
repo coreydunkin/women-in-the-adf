@@ -1,269 +1,285 @@
-
-
-<div class="nav">
-  <a ui-sref="home" class="home">
-    <span class="arrow-left"></span>CHANGE MY LOVES
-  </a>
-
-  <ul class="social">
-    <li class="fb"><a href=""></a></li>
-    <li class="tw"><a href=""></a></li>
-    <li class="in"><a href=""></a></li>
-    <li class="gp"><a href=""></a></li>
-  </ul>
-</div>
-
-<div results class="container">
-
-<div class="results text-center">
-
-  <h1><div class="you">YOU</div> SAID YOU'D LOVE TO</h1>
-  <h3>SEE THE WORLD, DO SOMETHING MEANINGFUL AND GET FIT.</h3>
-  <a href="" class="next-arrow"></a>
-  <hr />  
-
-  <p class="summary">As part of the Australian Defence Force you’ll get the opportunity to work all over the world from the Solomon Islands to Afghanistan, even Scotland, and see more of Australia than most Aussies.</p>
-
-  <h3 class="roles-header">WE THINK YOU'LL LOVE THESE ROLES:</h3>
-
-  <div class="rolescontainer">
-    <ul>
-      <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in jobs.WyltPublishedJobs"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}">
-              <div data-job-entry-key="" class="job card {{items.serviceName}}">
-
-                <div class="front">
-
-                  <div class="border"></div>
-                  <img src="assets/images/{{items.jobImageURL}}">
-                  
-                  <span class="arrow"></span>
-                  
-
-                  <div class="desc">
-                    <div class="inner">
-                      <h3> {{items.serviceName}} </h3>
-                      <h2> {{items.jobName}} </h2>
-                    </div>
-
-
-                    <hr>
-                    <p class="rollover text-right">Rollover for details <span><img src="assets/images/rollover.jpg" alt=""></span></p>
-
-                  </div>
-
-                </div>
-
-                <div class="desc-indepth back">
-                  <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Save_Job">
-                  <img src="assets/images/icon-close.jpg" alt="" class="close-card">
-                  <div class="job  {{items.serviceName}}">
-                  <div class="border"></div>
-                  <div class="inner">
-                    <div class="top-container" ng-click="pinJob( job.jobEntryKey )">
-                      <h3> {{items.serviceName}} </h3>
-                      <h2 class="{{items.serviceName}}">{{items.jobName}}</h2>
-                      <hr>
-                      <p>
-                      {{items.summary}}
-                      </p>                
-                    </div>
-
-
-                    <div class="bottom-container">
-                    
-                    
-                    <div class="clearfix"></div>
-
-                    <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
-                                      <span class="icon-star"></span>
-                                      <span class="text">
-              <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
-          </span>
-                                  </a>
-
-                    <hr>
-                      <a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="More_Info" target="_blank" class="info button col-md-6 paddingright">
-                                          <span class="">
-                                              MORE INFO
-                                          </span>
-                                      </a><!--
-                  --><a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Apply_Now" target="_blank" class="apply button col-md-6 paddingleft">
-          <span class="">
-              APPLY NOW
-              <div class="triangle"></div>
-          </span>
-      </a>
-                    </div><!-- end .bottom-container -->
-                    </div>
-                  </div>
-                </div>          
-              </div><!-- end job.card -->
-            </li>
-    </ul>
-      <div class="clearfix"></div>
-  </div>
-
-
-  <a href="" class="next-arrow second"></a>
-
-  <h2>SEE THE WORLD</h2>
-
-  <div class="vidcontainer">
-    <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="video" data-traction="played" data-trlabel="women_in_the_army" style="visibility: visible;">
-      <div class="content-container">
-        <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-        <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
-          <div class="playbtn"></div>
-        </div>
-  
-        <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
-      </div>
+<div class="results-page">
+  <div class="nav">
+    <a ui-sref="home" class="home">
+      <span class="arrow-left"></span>CHANGE MY LOVES
     </a>
+
+    <ul class="social">
+      <li class="fb"><a href=""></a></li>
+      <li class="tw"><a href=""></a></li>
+      <li class="in"><a href=""></a></li>
+      <li class="gp"><a href=""></a></li>
+    </ul>
   </div>
 
+  <div results class="container">
+
+  <div class="results text-center">
+
+    <h1><div class="you">YOU</div> SAID YOU'D LOVE TO</h1>
+    <h3>SEE THE WORLD, DO SOMETHING MEANINGFUL AND GET FIT.</h3>
+    <a href="" class="next-arrow"></a>
+    <hr />  
+
+    <p class="summary">As part of the Australian Defence Force you’ll get the opportunity to work all over the world from the Solomon Islands to Afghanistan, even Scotland, and see more of Australia than most Aussies.</p>
+
+    <h3 class="roles-header">WE THINK YOU'LL LOVE THESE ROLES:</h3>
+
+    <div class="rolescontainer">
+      <ul>
+        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in jobs.WyltPublishedJobs"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}">
+                <div data-job-entry-key="" class="job card {{items.serviceName}}">
+
+                  <div class="front">
+
+                    <div class="border"></div>
+                    <img src="assets/images/{{items.jobImageURL}}">
+                    
+                    <span class="arrow"></span>
+                    
+
+                    <div class="desc">
+                      <div class="inner">
+                        <h3> {{items.serviceName}} </h3>
+                        <h2> {{items.jobName}} </h2>
+                      </div>
+
+
+                      <hr>
+                      <p class="rollover text-right">Rollover for details <span><img src="assets/images/rollover.jpg" alt=""></span></p>
+
+                    </div>
+
+                  </div>
+
+                  <div class="desc-indepth back">
+                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Save_Job">
+                    <img src="assets/images/icon-close.jpg" alt="" class="close-card">
+                    <div class="job  {{items.serviceName}}">
+                    <div class="border"></div>
+                    <div class="inner">
+                      <div class="top-container" ng-click="pinJob( job.jobEntryKey )">
+                        <h3> {{items.serviceName}} </h3>
+                        <h2 class="{{items.serviceName}}">{{items.jobName}}</h2>
+                        <hr>
+                        <p>
+                        {{items.summary}}
+                        </p>                
+                      </div>
+
+
+                      <div class="bottom-container">
+                      
+                      
+                      <div class="clearfix"></div>
+
+                      <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
+                                        <span class="icon-star"></span>
+                                        <span class="text">
+                <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
+            </span>
+                                    </a>
+
+                      <hr>
+                        <a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="More_Info" target="_blank" class="info button col-md-6 paddingright">
+                                            <span class="">
+                                                MORE INFO
+                                            </span>
+                                        </a><!--
+                    --><a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Apply_Now" target="_blank" class="apply button col-md-6 paddingleft">
+            <span class="">
+                APPLY NOW
+                <div class="triangle"></div>
+            </span>
+        </a>
+                      </div><!-- end .bottom-container -->
+                      </div>
+                    </div>
+                  </div>          
+                </div><!-- end job.card -->
+              </li>
+      </ul>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <a href="" class="next-arrow second"></a>
+
+    <h2>SEE THE WORLD</h2>
+
+    <div class="vidcontainer">
+      <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="video" data-traction="played" data-trlabel="women_in_the_army" style="visibility: visible;">
+        <div class="content-container">
+          <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
+          <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
+            <div class="playbtn"></div>
+          </div>
+    
+          <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
+        </div>
+      </a>
+    </div>
+
+    <a href="" class="next-arrow second"></a>
+
+    <h2>JOIN A TEAM</h2>
+
+    <!-- Place somewhere in the <body> of your page -->
+  <!-- <script type="text/ng-template" id="/slider.html">
+      <div class="flexslider">
+          <ul class="slides">
+              <li ng-repeat="x in items">
+                  <img ng-src="{{x}}" />
+              </li>
+          </ul>
+      </div>
+  </script>
+
+  <div slider items="arr"></div> -->
+  <div class="slider-container">
+    
+    <div id="slider" class="flexslider slider" slider>
+      <ul class="slides">
+        <li ng-repeat="slides in slider">
+          <img ng-src="assets/images/{{slides.img}}" />
+        </li>
+      </ul>
+    </div>
+    <div id="carousel" class="flexslider carousel" carousel>
+      <ul class="slides">
+        <li ng-repeat="slides in slider">
+          <img ng-src="assets/images/{{slides.img}}" />
+        </li>
+      </ul>
+    </div>
+
+  </div>  
+
+  <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
   <a href="" class="next-arrow second"></a>
 
-  <h2>JOIN A TEAM</h2>
 
-  <!-- Place somewhere in the <body> of your page -->
-<!-- <script type="text/ng-template" id="/slider.html">
-    <div class="flexslider">
-        <ul class="slides">
-            <li ng-repeat="x in items">
-                <img ng-src="{{x}}" />
-            </li>
-        </ul>
+  <div class="postcard-gallery" parallax>
+    <div class="main" class="col-md-12">
+      <img src="assets/images/{{postcards.main}}" alt="">
     </div>
-</script>
 
-<div slider items="arr"></div> -->
-<div class="slider-container">
-  
-  <div id="slider" class="flexslider slider" slider>
-    <ul class="slides">
-      <li ng-repeat="slides in slider">
-        <img ng-src="assets/images/{{slides.img}}" />
-      </li>
-    </ul>
-  </div>
-  <div id="carousel" class="flexslider carousel" carousel>
-    <ul class="slides">
-      <li ng-repeat="slides in slider">
-        <img ng-src="assets/images/{{slides.img}}" />
-      </li>
-    </ul>
-  </div>
-
-</div>  
-
-<p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
-<a href="" class="next-arrow second"></a>
-
-<div class="postcard-gallery" parallax>
-  <div class="main" class="col-md-12">
-    <img src="assets/images/{{postcards.main}}" alt="">
-  </div>
-
-  <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
-    <img src="assets/images/{{postcards.subone}}" alt="">
-  </div>
-  <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
-    <img src="assets/images/{{postcards.subtwo}}" alt="">
-  </div>
-  <div class="copy col-md-7">
-    <h2>{{ postcards.header }}</h2>
-    <hr>
-    <p>{{postcards.text}}</p>    
-  </div>
+    <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
+      <img src="assets/images/{{postcards.subone}}" alt="">
+    </div>
+    <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
+      <img src="assets/images/{{postcards.subtwo}}" alt="">
+    </div>
+    <div class="copy col-md-7">
+      <h2>{{ postcards.header }}</h2>
+      <hr>
+      <p>{{postcards.text}}</p>    
+    </div>
 
 
-</div><!-- end .postcard--gallery -->
-
-<div class="clearfix"></div>
-<p class="text"></p>
-<a href="" class="next-arrow second"></a>
+  </div><!-- end .postcard-gallery -->
 
   <div class="clearfix"></div>
-  <br><br>
-  <div class="rolescontainer">
-    <ul>
-      <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in secondaryJobs.WyltPublishedJobs"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}">
-              <div data-job-entry-key="" class="job card {{items.serviceName}}">
+  <p class="text"></p>
+  <a href="" class="next-arrow second"></a>
 
-                <div class="front">
+    <div class="clearfix"></div>
+    <br><br>
+    <div class="rolescontainer">
+      <div class="filter-container col-md-12">
+        <div class="title col-md-8"><h3>SEE YOUR ROLES</h3></div>
+        <div filterDir class="filter col-md-4">
+          <select name="filterjobs" id="filterjobs" ng-change="filterJob()" ng-model="form.type" value="All">
+            <option ng-repeat="job in filters[&quot;'Jobs'&quot;]" value="{{job}}">{{job}}</option>
 
-                  <div class="border"></div>
-                  <img src="assets/images/{{items.jobImageURL}}">
-                  
-                  <span class="arrow"></span>
-                  
+          </select>
 
-                  <div class="desc">
-                    <div class="inner">
-                      <h3> {{items.serviceName}} </h3>
-                      <h2> {{items.jobName}} </h2>
-                    </div>
-
-
-                    <hr>
-                    <p class="rollover text-right">Rollover for details <span><img src="assets/images/rollover.jpg" alt=""></span></p>
-
-                  </div>
-
-                </div>
-
-                <div class="desc-indepth back">
-                  <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Save_Job">
-                  <img src="assets/images/icon-close.jpg" alt="" class="close-card">
-                  <div class="job  {{items.serviceName}}">
-                  <div class="border"></div>
-                  <div class="inner">
-                    <div class="top-container" ng-click="pinJob( job.jobEntryKey )">
-                      <h3> {{items.serviceName}} </h3>
-                      <h2 class="{{items.serviceName}}">{{items.jobName}}</h2>
-                      <hr>
-                      <p>
-                      {{items.summary}}
-                      </p>                
-                    </div>
-
-
-                    <div class="bottom-container">
-                    
-                    
-                    <div class="clearfix"></div>
-
-                    <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
-                                      <span class="icon-star"></span>
-                                      <span class="text">
-              <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
-          </span>
-                                  </a>
-
-                    <hr>
-                      <a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="More_Info" target="_blank" class="info button col-md-6 paddingright">
-                                          <span class="">
-                                              MORE INFO
-                                          </span>
-                                      </a><!--
-                  --><a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Apply_Now" target="_blank" class="apply button col-md-6 paddingleft">
-          <span class="">
-              APPLY NOW
-              <div class="triangle"></div>
-          </span>
-      </a>
-                    </div><!-- end .bottom-container -->
-                    </div>
-                  </div>
-                </div>          
-              </div><!-- end job.card -->
-            </li>
-    </ul>
+          <select ng-model="blah" ng-options="item.ID as item.Title for item in items"></select>
+        </div>
+      </div>
+      
       <div class="clearfix"></div>
+      <ul>
+        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in secondaryJobs.WyltPublishedJobs"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}">
+                <div data-job-entry-key="" class="job card {{items.serviceName}}">
+
+                  <div class="front">
+
+                    <div class="border"></div>
+                    <img src="assets/images/{{items.jobImageURL}}">
+                    
+                    <span class="arrow"></span>
+                    
+
+                    <div class="desc">
+                      <div class="inner">
+                        <h3> {{items.serviceName}} </h3>
+                        <h2> {{items.jobName}} </h2>
+                      </div>
+
+
+                      <hr>
+                      <p class="rollover text-right">Rollover for details <span><img src="assets/images/rollover.jpg" alt=""></span></p>
+
+                    </div>
+
+                  </div>
+
+                  <div class="desc-indepth back">
+                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Save_Job">
+                    <img src="assets/images/icon-close.jpg" alt="" class="close-card">
+                    <div class="job  {{items.serviceName}}">
+                    <div class="border"></div>
+                    <div class="inner">
+                      <div class="top-container" ng-click="pinJob( job.jobEntryKey )">
+                        <h3> {{items.serviceName}} </h3>
+                        <h2 class="{{items.serviceName}}">{{items.jobName}}</h2>
+                        <hr>
+                        <p>
+                        {{items.summary}}
+                        </p>                
+                      </div>
+
+
+                      <div class="bottom-container">
+                      
+                      
+                      <div class="clearfix"></div>
+
+                      <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
+                                        <span class="icon-star"></span>
+                                        <span class="text">
+                <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
+            </span>
+                                    </a>
+
+                      <hr>
+                        <a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="More_Info" target="_blank" class="info button col-md-6 paddingright">
+                                            <span class="">
+                                                MORE INFO
+                                            </span>
+                                        </a><!--
+                    --><a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Apply_Now" target="_blank" class="apply button col-md-6 paddingleft">
+            <span class="">
+                APPLY NOW
+                <div class="triangle"></div>
+            </span>
+        </a>
+                      </div><!-- end .bottom-container -->
+                      </div>
+                    </div>
+                  </div>          
+                </div><!-- end job.card -->
+              </li>
+ <!--              <div ng-class="{block: ($index +1) % 4}" ng-repeat="position in [1,2,3,4,5,6,7,8,9,10]"></div>
+              <span ng-repeat-end></span> -->
+      </ul>
+        <div class="clearfix"></div>
+    </div>
+
+
   </div>
 
 
-</div>
-
-
-</div>
+  </div>
+</div><!-- end .results-page -->

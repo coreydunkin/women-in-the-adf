@@ -27,6 +27,37 @@ $airColor: #6894bf;
     #{$name}: #{$argument};
 }
 
+// ng enter and leave
+.view.ng-animate {
+  -webkit-transition: color 0.6s, background-color 0.3s;
+  -moz-transition: color 0.6s, background-color 0.3s;
+  -ms-transition: color 0.6s, background-color 0.3s;
+  transition: color 0.6s, background-color 0.3s;
+}
+.ng-enter .main-page {
+  -webkit-animation: fadeInLeft 1s;
+  -moz-animation: fadeInLeft 1s;
+  -ms-animation: fadeInLeft 1s;
+  animation: fadeInLeft 1s;
+}
+.ng-leave .main-page {
+  -webkit-animation: fadeOutLeft 1s;
+  -moz-animation: fadeOutLeft 1s;
+  -ms-animation: fadeOutLeft 1s;
+  animation: fadeOutLeft 1s;
+}
+.ng-enter .results-page {
+  -webkit-animation: fadeInRight 1s;
+  -moz-animation: fadeInRight 1s;
+  -ms-animation: fadeInRight 1s;
+  animation: fadeInRight 1s;
+}
+.ng-leave .results-page {
+  -webkit-animation: fadeOutRight 1s;
+  -moz-animation: fadeOutRight 1s;
+  -ms-animation: fadeOutRight 1s;
+  animation: fadeOutRight 1s;
+}
 
 // fonts
 @font-face {
@@ -92,6 +123,7 @@ ul li.job-container {
 	list-style: none;
 	padding: 0 15px;
 	margin-bottom: 20px;
+	height: 480px;
 }
 a.save-job {
 	color: white;
@@ -537,6 +569,16 @@ a.btn {
 	padding-top: 20px;
 	padding-bottom: 40px;
 	display: block;
+	.title{
+		padding-left: 0;
+		h3 {
+			margin-top: 0;
+			text-align: left;
+		}
+	}
+	.filter {
+		text-align: right;
+	}
 }
 
 // image slider
@@ -1068,7 +1110,17 @@ a.btn {
 	display: none;
 }
 
-
+ul li.job-container {
+	height: auto;
+	.job .desc-indepth {
+		position: relative;
+		a.button {
+			span {
+				font-size: 14px;
+			}
+		}
+	}
+}
 .job-container {
 	padding: 0px;
 	margin-bottom: 15px;

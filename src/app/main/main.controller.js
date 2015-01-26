@@ -80,7 +80,7 @@ angular.module('womenInAdf')
     ];
 
     // SAVED DATA
-    $scope.savedData = function(key, $event) {
+    $scope.savedData = function(key) {
  
       console.log('click');
             
@@ -365,7 +365,198 @@ angular.module('womenInAdf')
       "jobEntryKey": "35349_1",
       "jobId": "bc263316-78a3-4a5d-9208-ca0b96db9ce0",
       "publishedJobId": 35349,
-      "jobName": "Cryptologic Linguist",
+      "jobName": "Training Systems Officer",
+      "shortName": "CryptologicLinguist",
+      "serviceId": 1,
+      "serviceName": "Army",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": false,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "Interested in entering the world of Signals Intelligence? The Navy is looking for motivated people to work in this highly classified environment providing intelligence support for the Australian Defence Force.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": true,
+      "archetype": 4,
+      "jobImageURL": "love1.jpg",
+      "jobURL": "/navy/jobs/CryptologicLinguist/",
+      "applyURL": "/olat?PublishedJobID=35349"
+    },
+    {
+      "interestId": 2,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_1",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Air",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love2.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Navy",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love3.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Air",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love4.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer 2",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Army",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love6.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer 3",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Navy",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love5.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },     {
+      "interestId": 2,
+      "interest": "Keep learning",
+      "isPrimaryJob": true,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35349\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35349\">Save this job</span><a>",
+      "jobEntryKey": "35349_1",
+      "jobId": "bc263316-78a3-4a5d-9208-ca0b96db9ce0",
+      "publishedJobId": 35349,
+      "jobName": "Training Systems Officer",
       "shortName": "CryptologicLinguist",
       "serviceId": 1,
       "serviceName": "Army",
@@ -722,6 +913,37 @@ angular.module('womenInAdf').directive('parallax', function ($timeout) {
        
           var s = skrollr.init();
         }), 0);   
+    }
+  }
+});
+
+angular.module('womenInAdf').directive('filter-dir', function ($timeout) {
+  console.log('filter directive loaded');
+  return {
+    require: 'ngModel',
+    link: function ($scope, element, attrs, jobEntryKey) {
+      $scope.filters = {
+      "'Jobs'": [
+          "All",
+          "Army",
+          "Air",
+          "Navy"
+        ]
+      };
+
+     $scope.items = [
+        {ID: '000001', Title: 'Chicago'},
+        {ID: '000002', Title: 'New York'},
+        {ID: '000003', Title: 'Washington'},     
+      ];
+
+      $scope.filterJob = function() {
+        console.log('filtered');
+      };
+
+
+  
+
     }
   }
 });
