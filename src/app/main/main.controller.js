@@ -80,69 +80,97 @@ angular.module('womenInAdf')
     ];
 
     // SAVED DATA
-    $scope.savedData = function(key) {
-      console.log(key);
+    $scope.savedData = function(key, $event) {
+ 
+      console.log('click');
+            
 
-              console.log(key + ' saved');
+      // save key to the scope
+      $scope.key = key;
 
-              // save key to the scope
-              $scope.key = key;
+      // run a check to see if item exsists in array already
+      if(jQuery.inArray($scope.key, $scope.loveArray) != -1) {
+          console.log($scope.key + " is in array");
+          // if it's in array, remove it, don't move forward
+          $scope.loveArray = $.grep($scope.loveArray, function(value) {
+            return value != $scope.key;
+          });
 
-              // push key to the array for storing
-              $scope.loveArray.push(key);
-              console.log($scope.loveArray);
+          console.log($scope.loveArray);
 
-              $('.loves').removeClass('active');
+          $(".loves[data-key="+ $scope.key +"]")
+              .removeClass('active')
+              .attr('selected', '');
+         
+          $scope.countdown = $scope.countdown + 1;
+     
+          if($scope.countdown == 1) {
+            console.log('hide complete button');
+            $scope.countbtn = true;
+          } 
 
-              // iterate over each love element, 
-              // add active and selected to the element
-              var i;
-              for (var i = 0; i < $scope.loveArray.length; i++) {
-                $scope.loveArray[i];
-                
-                $(".loves[data-key="+ $scope.loveArray[i] +"]")
-                .addClass('active')
-                .attr('selected', 'selected');
+      } else {
+
+          if ( $scope.loveArray.length < 3 ) {
+
+          // if it's not in the array already, add it to array
+          console.log($scope.key + " is NOT in array");
+          // push key to the array for storing
+            $scope.loveArray.push(key);
+            console.log($scope.loveArray);
+            //$('.loves').removeClass('active');
+
+            $(".loves[data-key="+ key +"]")
+              .addClass('active')
+              .attr('selected', 'selected');
+
+
+            // iterate over each love element, 
+            // add active and selected to the element
+            /*var i;
+            for (var i = 0; i < $scope.loveArray.length; i++) {
+              $scope.loveArray[i];
               
-                console.log($scope.loveArray[i]);
-                
-                if ($.inArray($scope.loveArray[i])) {
-                  console.log('detected');
-                }
-                console.log(i + "counted");
+              
+            
+              console.log($scope.loveArray[i]);
+              console.log(i + "counted");
 
-                if( i >= 3 ) {
-                  $scope.loveArray.pop(key);
-                  $scope.countdown = 0;
-                };
-                // countdown the button clicks
-               
-              };
-
-              $scope.countdown = $scope.countdown-1;
-             
-
-              if($scope.loveArray.length > 3) {
-
-              }
-              // Only allow 3 love items to be selected
-              if($scope.loveArray.length > 2) {
-                //$scope.loveArray.pop(key);
+              if( $scope.loveArray.length > 3 ) {
+                console.log('TOO MUCH');
+                $scope.loveArray.pop(key);
                 $scope.countdown = 0;
-                // remove countdown button
-                $scope.countbtn = false;
-              }
+              };
+              // countdown the button clicks
+             
+            };*/
 
-              if($scope.countdown == 0) {
+            /*$scope.countdown = 3 - $scope.loveArray.length;
+    
+            // Only allow 3 love items to be selected
+            if($scope.loveArray.length > 2) {
+              //$scope.loveArray.pop(key);
+              $scope.countdown = 0;
+              // remove countdown button
+              $scope.countbtn = false;
+            }
+            console.log($scope.loveArray);*/
 
-              }
+            $scope.countdown = 3 - $scope.loveArray.length;
 
-              console.log($scope.countdown);
-              console.log($scope.loveArray);
+            if ( $scope.countdown === 0 ) {
+              $scope.countbtn = false;
+            }
 
-              $rootScope.savedLoves = $scope.loveArray;
 
-              console.log($rootScope.savedLoves + ' rootscope');
+            $rootScope.savedLoves = $scope.loveArray;
+
+          }
+
+      } //end if else for adding removing
+
+
+              
 
     };
 
@@ -205,7 +233,7 @@ angular.module('womenInAdf')
       "isCurrentlyRecruiting": false,
       "isCritical": true,
       "archetype": 4,
-      "jobImageURL": "/global/images/thumbs/thumbnail.ashx?src=jobs/navyCryptologicLinguist.jpg&size=jobThumbFeature",
+      "jobImageURL": "love1.jpg",
       "jobURL": "/navy/jobs/CryptologicLinguist/",
       "applyURL": "/olat?PublishedJobID=35349"
     },
@@ -237,7 +265,7 @@ angular.module('womenInAdf')
       "isCurrentlyRecruiting": false,
       "isCritical": false,
       "archetype": 3,
-      "jobImageURL": "/global/images/thumbs/thumbnail.ashx?src=jobs/navyTrainingSystemsOfficer.jpg&size=jobThumbFeature",
+      "jobImageURL": "love2.jpg",
       "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
       "applyURL": "/olat?PublishedJobID=35382"
     },
@@ -269,11 +297,12 @@ angular.module('womenInAdf')
       "isCurrentlyRecruiting": false,
       "isCritical": false,
       "archetype": 3,
-      "jobImageURL": "/global/images/thumbs/thumbnail.ashx?src=jobs/navyTrainingSystemsOfficer.jpg&size=jobThumbFeature",
+      "jobImageURL": "love3.jpg",
       "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
       "applyURL": "/olat?PublishedJobID=35382"
     }]
   };
+
 
 
     $scope.slider = [
@@ -323,12 +352,208 @@ angular.module('womenInAdf')
       text:  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod libero purus, sed tempor purus consectetur ut. Ut ac pretium sem, quis malesuada quam. Donec vestibulum tortor ac leo consequat malesuada vel non risus. Quisque molestie aliquet laoreet. Aenean vel elementum ex. Vivamus diam ex, consequat nec volutpat a, accumsan faucibus ante. Maecenas non tincidunt elit, et dictum orci. Donec fermentum libero eget scelerisque convallis. Vestibulum mi libero, porta id dignissim at, placerat eget magna.'
     };
 
+
+// secondary jobs
+  $scope.secondaryJobs = {"WyltPublishedJobs":[
+    {
+      "interestId": 2,
+      "interest": "Keep learning",
+      "isPrimaryJob": true,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35349\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35349\">Save this job</span><a>",
+      "jobEntryKey": "35349_1",
+      "jobId": "bc263316-78a3-4a5d-9208-ca0b96db9ce0",
+      "publishedJobId": 35349,
+      "jobName": "Cryptologic Linguist",
+      "shortName": "CryptologicLinguist",
+      "serviceId": 1,
+      "serviceName": "Army",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": false,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "Interested in entering the world of Signals Intelligence? The Navy is looking for motivated people to work in this highly classified environment providing intelligence support for the Australian Defence Force.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": true,
+      "archetype": 4,
+      "jobImageURL": "love1.jpg",
+      "jobURL": "/navy/jobs/CryptologicLinguist/",
+      "applyURL": "/olat?PublishedJobID=35349"
+    },
+    {
+      "interestId": 2,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_1",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Air",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love2.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Navy",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love3.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Air",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love4.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer 2",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Army",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love6.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    },
+    {
+      "interestId": 3,
+      "interest": "Keep learning",
+      "isPrimaryJob": false,
+      "displayInWylt": true,
+      "fallbackInWylt": true,
+      "saveThisJobLink": "<a title=\"Save this job\" class=\"save-job\" data-jobid=\"35382\"><span class=\"icon-star\"></span><span class=\"text save-unsave\" data-jobid=\"35382\">Save this job</span><a>",
+      "jobEntryKey": "35382_2",
+      "jobId": "ee550dc2-b6f0-4ecd-9e08-ca0b96db9c5b",
+      "publishedJobId": 35382,
+      "jobName": "Training Systems Officer 3",
+      "shortName": "TrainingSystemsOfficer",
+      "serviceId": 1,
+      "serviceName": "Navy",
+      "genderRestriction": 1,
+      "isFullTime": true,
+      "isReserve": true,
+      "isGapYear": false,
+      "isAdfa": false,
+      "isAdvertised": true,
+      "summary": "The core function of a Training Systems officer is to provide training systems expertise on all aspects of the Defence Training Model. You will develop, manage and co-ordinate a wide range of training delivery systems and oversee trainers.",
+      "entryTypeId": 1,
+      "entryType": 1,
+      "entryTypeName": "",
+      "maximumAge": 65.0,
+      "isCurrentlyRecruiting": false,
+      "isCritical": false,
+      "archetype": 3,
+      "jobImageURL": "love5.jpg",
+      "jobURL": "/navy/jobs/TrainingSystemsOfficer/",
+      "applyURL": "/olat?PublishedJobID=35382"
+    }]
+  };
   
 });
 
 angular.module('womenInAdf').directive('loveList', function($rootScope) {
 
-    console.log('hello');
+    
     
     
     return {
@@ -342,9 +567,11 @@ angular.module('womenInAdf').directive('loveList', function($rootScope) {
             // reset button
             $scope.countbtn = true;
 
-            $scope.saveLove = function(key, e) {
+            $scope.saveLove = function(key, e, $event) {
               // tell me if the interest is being picked up
               // move the data back to the controller
+              //if ($event.stopPropagation) $event.stopPropagation();
+              //if ($event.preventDefault) $event.preventDefault();              
               $scope.savedData(key);
             };
 
@@ -491,10 +718,10 @@ angular.module('womenInAdf').directive('parallax', function ($timeout) {
   return {
     link: function ($scope, element, attrs, jobEntryKey) {
         
-
+        $timeout((function() {
        
           var s = skrollr.init();
-        
+        }), 0);   
     }
   }
 });

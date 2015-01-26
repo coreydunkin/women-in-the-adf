@@ -69,6 +69,7 @@ $airColor: #6894bf;
 
 body {
 	background: url(#{$image-url}repeatbg.jpg);
+	overflow-x: hidden;
 }
 
 h1 {
@@ -90,6 +91,7 @@ ul {
 ul li.job-container {
 	list-style: none;
 	padding: 0 15px;
+	margin-bottom: 20px;
 }
 a.save-job {
 	color: white;
@@ -146,7 +148,7 @@ a.btn {
 .jumbotron {
 	margin-bottom: 0;
 	background: url(#{$image-url}line-bg.png) repeat;
-	min-height: 685px;
+	height: 100vh;
 
 	h1 {
 		color: $offwhite;
@@ -494,10 +496,15 @@ a.btn {
 			display: inline-block;
 		}
 	}
+	p.text {
+		max-width: 400px;
+		width: 90%;
+		margin: 0px auto 50px auto;
+	}
 	.postcard-gallery {
 		max-width: 980px;
 		width: 100%;
-		margin: 0 auto;
+		margin: 80px auto;
 		position: relative;
 		.main {
 			overflow: hidden;
@@ -508,15 +515,17 @@ a.btn {
 		}
 		.subone {
 			left: -30%;
+			max-width: 350px;
 		}
 		.subtwo {
-			right: -3%;
+			right: -23%;
+			max-width: 500px;
 		}
 		.subone, .subtwo {
 			position: absolute;
 			border: 5px solid white;
 			z-index: 500;
-			max-width: 350px;
+			
 			img {
 				width: 100%;
 			}
@@ -526,7 +535,7 @@ a.btn {
 
 .rolescontainer {
 	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 40px;
 	display: block;
 }
 

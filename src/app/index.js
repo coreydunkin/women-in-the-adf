@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('womenInAdf', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'youtube-embed', 'directives.skrollr'])
+angular.module('womenInAdf', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'youtube-embed', 'directives.skrollr', 'angularSmoothscroll'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {

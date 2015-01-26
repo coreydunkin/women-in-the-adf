@@ -34,7 +34,7 @@
                 <div class="front">
 
                   <div class="border"></div>
-                  <img src="http://www.defencejobs.gov.au{{items.jobImageURL}}">
+                  <img src="assets/images/{{items.jobImageURL}}">
                   
                   <span class="arrow"></span>
                   
@@ -156,6 +156,8 @@
 
 </div>  
 
+<p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
+<a href="" class="next-arrow second"></a>
 
 <div class="postcard-gallery" parallax>
   <div class="main" class="col-md-12">
@@ -165,16 +167,100 @@
   <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
     <img src="assets/images/{{postcards.subone}}" alt="">
   </div>
-  <div class="subtwo" data-1000="top:-5%;" data-2500="top:110%;">
+  <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
     <img src="assets/images/{{postcards.subtwo}}" alt="">
   </div>
   <div class="copy col-md-7">
     <h2>{{ postcards.header }}</h2>
+    <hr>
     <p>{{postcards.text}}</p>    
   </div>
 
 
-</div>
+</div><!-- end .postcard--gallery -->
+
+<div class="clearfix"></div>
+<p class="text"></p>
+<a href="" class="next-arrow second"></a>
+
+  <div class="clearfix"></div>
+  <br><br>
+  <div class="rolescontainer">
+    <ul>
+      <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in secondaryJobs.WyltPublishedJobs"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}">
+              <div data-job-entry-key="" class="job card {{items.serviceName}}">
+
+                <div class="front">
+
+                  <div class="border"></div>
+                  <img src="assets/images/{{items.jobImageURL}}">
+                  
+                  <span class="arrow"></span>
+                  
+
+                  <div class="desc">
+                    <div class="inner">
+                      <h3> {{items.serviceName}} </h3>
+                      <h2> {{items.jobName}} </h2>
+                    </div>
+
+
+                    <hr>
+                    <p class="rollover text-right">Rollover for details <span><img src="assets/images/rollover.jpg" alt=""></span></p>
+
+                  </div>
+
+                </div>
+
+                <div class="desc-indepth back">
+                  <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Save_Job">
+                  <img src="assets/images/icon-close.jpg" alt="" class="close-card">
+                  <div class="job  {{items.serviceName}}">
+                  <div class="border"></div>
+                  <div class="inner">
+                    <div class="top-container" ng-click="pinJob( job.jobEntryKey )">
+                      <h3> {{items.serviceName}} </h3>
+                      <h2 class="{{items.serviceName}}">{{items.jobName}}</h2>
+                      <hr>
+                      <p>
+                      {{items.summary}}
+                      </p>                
+                    </div>
+
+
+                    <div class="bottom-container">
+                    
+                    
+                    <div class="clearfix"></div>
+
+                    <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
+                                      <span class="icon-star"></span>
+                                      <span class="text">
+              <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
+          </span>
+                                  </a>
+
+                    <hr>
+                      <a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="More_Info" target="_blank" class="info button col-md-6 paddingright">
+                                          <span class="">
+                                              MORE INFO
+                                          </span>
+                                      </a><!--
+                  --><a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Apply_Now" target="_blank" class="apply button col-md-6 paddingleft">
+          <span class="">
+              APPLY NOW
+              <div class="triangle"></div>
+          </span>
+      </a>
+                    </div><!-- end .bottom-container -->
+                    </div>
+                  </div>
+                </div>          
+              </div><!-- end job.card -->
+            </li>
+    </ul>
+      <div class="clearfix"></div>
+  </div>
 
 
 </div>
