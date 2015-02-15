@@ -5,16 +5,17 @@
 
   <div class="intro text-center">
 
-    <h1>DO WHAT YOU LOVE</h1>
+    
     <p>Select three things you love and we'll show you exciting opportunities available in the Navy, Army and Air Force.</p>  
 
   </div>
 
-
+    <a id="auto-top" class="auto-top" smooth-scroll-jquery target="" offset="0">
+    </a>
 
     <div class="row">
     <div class="triangle"></div>
-      <div class="col-sm-6 col-md-3 loves" ng-repeat="love in loves" data-key="{{love.key}}" ng-click="saveLove(love.key)">
+      <div class="col-sm-6 col-md-3 loves" ng-repeat="love in loves" data-key="{{love.key}}" data-title="{{love.title}}" ng-click="saveLove(love.key, love.title)" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="interest{{love.key}}" data-trlabel="interest{{love.key}}">
         <div class="thumbnail {{love.class}}">
           
           <div class="caption text-center">
@@ -30,8 +31,8 @@
     
     <div class="button-container">
       <p class="text-center moveforward">
-      <a ng-show="!countbtn" class="btn btn-lg" ng-click="pushAnswers()">Get Started <span class="arrow-right"></span></a>    
-      <a ng-show="countbtn" class="btn btn-lg" ui-sref="results" disabled="disabled">Choose {{countdown}} more love <span class="arrow-right"></span></a>
+      <a ng-show="!countbtn" class="btn btn-lg" ng-click="pushAnswers()">Show my results<span class="arrow-right"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Get Started_DWYL" data-trlabel="Get Started_DWYL"></span></a>    
+      <a ng-show="countbtn" class="btn btn-lg" ui-sref="results" disabled="disabled">Choose {{countdown}} more love<span ng-show="multipleLovesText">'s</span> <span class="arrow-right"></span></a>
       </p>      
     </div>
 

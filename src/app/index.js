@@ -12,6 +12,11 @@ angular.module('womenInAdf', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
         url: '/results',
         templateUrl: 'app/main/results.html',
         controller: 'ResultsCtrl'
+      })
+      .state('results.jobs', {
+        url: '/global/jobSelector/jobSelectWindow_SavedJobs.aspx',
+        templateUrl: 'app/main/results.html',
+        controller: 'ResultsCtrl'
       });
 
 

@@ -1,15 +1,29 @@
 <div class="results-page">
-  <div class="nav">
-    <a ui-sref="home" class="home">
-      <span class="arrow-left"></span>CHANGE MY LOVES
+  <div class="subnav">
+    <a ui-sref="home" class="home"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Change_DWYL" data-trlabel="Change_DWYL">
+      <span class="arrow-left"></span><span class="mobile-hide">CHANGE MY LOVES</span>
     </a>
 
-    <ul class="social">
-      <li class="fb"><a href=""></a></li>
-      <li class="tw"><a href=""></a></li>
-      <li class="in"><a href=""></a></li>
-      <li class="gp"><a href=""></a></li>
-    </ul>
+      <ul class="social" data-text="Do What You Love - Jobs for Women in the Australian Defence Force" social>
+      <li class="mobile-share"><a href="" ng-click="social()"><span class="icon-link"></span></a></li>
+
+        <li class="fb">
+        <a class="facebook" href="" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Facebook" data-trlabel="Share Button Tracking"><span class="icon-facebook"></span></a>
+        </li>
+
+        <li class="tw">
+        <a class="twitter" href="" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Twitter" data-trlabel="Share Button Tracking"><span class="icon-twitter"></span></a>
+        </li>
+
+        <li class="in">
+        <a class="linkedin" href="" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="G+" data-trlabel="Share Button Tracking"><span class="icon-linked-in"></span></a>
+        </li>
+
+        <li class="gp">
+        <a class="googleplus" href="" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Linkedin" data-trlabel="Share Button Tracking"><span class="icon-google-plus"></span></a>
+        </li>
+
+      </ul>     
   </div>
 
   <div results class="container">
@@ -17,23 +31,26 @@
   <div class="results text-center">
 
     <h1><div class="you">YOU</div> SAID YOU'D LOVE TO</h1>
-    <h3>SEE THE WORLD, DO SOMETHING MEANINGFUL AND GET FIT.</h3>
-    <a href="" class="next-arrow"></a>
+    <h3 class="titles">{{loveTitleOne}}, {{loveTitleTwo}} AND TO {{loveTitleThree}}.</h3>
+    <a href="" id="next-one" class="next-arrow" smooth-scroll-jquery target="next-two" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
     <hr />  
 
-    <p class="summary">As part of the Australian Defence Force you’ll get the opportunity to work all over the world from the Solomon Islands to Afghanistan, even Scotland, and see more of Australia than most Aussies.</p>
+    <p class="summary">As part of the Australian Defence Force you’ll get the opportunity to {{longBlurbOne}} You’ll get the chance to {{longBlurbTwo}} Plus in every role you’ll get {{shortBlurbOne}}</p>
 
-    <h3 class="roles-header">WE THINK YOU'LL LOVE THESE ROLES:</h3>
+
+
+
+    <h3 class="roles-header">WE THINK YOU'LL LOVE THESE ROLES:</h3> 
 
     <div class="rolescontainer">
       <ul>
-        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in jobs.WyltPublishedJobs"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}">
+        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items in jobs.WyltPublishedJobs" ng-show="{{items.isPrimaryJob}}" data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}" on-finish-render="ngRepeatFinished">
                 <div data-job-entry-key="" class="job card {{items.serviceName}}">
 
                   <div class="front">
 
                     <div class="border"></div>
-                    <img src="assets/images/{{items.jobImageURL}}">
+                    <img src="{{items.jobImageURL}}">
                     
                     <span class="arrow"></span>
                     
@@ -53,7 +70,10 @@
                   </div>
 
                   <div class="desc-indepth back">
-                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Save_Job">
+                 
+                      
+                    
+                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Save_Job_DWYL">
                     <img src="assets/images/icon-close.jpg" alt="" class="close-card">
                     <div class="job  {{items.serviceName}}">
                     <div class="border"></div>
@@ -73,42 +93,49 @@
                       
                       <div class="clearfix"></div>
 
-                      <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
-                                        <span class="icon-star"></span>
-                                        <span class="text">
-                <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
-            </span>
-                                    </a>
+                            <a id="" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="{{items.jobName}}" class="save-job primary" title="Save this job" data-job-id="{{ items.publishedJobId }}">
+                                <span class="icon-star"></span>
+                                <span class="text"></span>
+                            </a>
+
+                            
 
                       <hr>
-                        <a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="More_Info" target="_blank" class="info button col-md-6 paddingright">
+                        <a href="{{items.jobURL}}" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="More_Info_DWYL" data-trlabel="{{items.jobName}}" target="_blank" class="info button col-md-6 paddingright">
                                             <span class="">
                                                 MORE INFO
                                             </span>
                                         </a><!--
-                    --><a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Apply_Now" target="_blank" class="apply button col-md-6 paddingleft">
+                    --><a href="{{items.applyURL}}" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Apply_Now_DWYL" data-trlabel="{{items.jobName}}" target="_blank" class="apply button col-md-6 paddingleft">
+                    
             <span class="">
                 APPLY NOW
                 <div class="triangle"></div>
             </span>
-        </a>
+            </a>
                       </div><!-- end .bottom-container -->
                       </div>
                     </div>
+
                   </div>          
                 </div><!-- end job.card -->
               </li>
       </ul>
         <div class="clearfix"></div>
     </div>
+    
+    <p class="text-center">
+      
+      <a class="btn btn-lg see-all" data-tracking="true" smooth-scroll-jquery target="next-five" data-trcategory="{{trackingCategory}}" data-traction="See All Roles" offset="0" data-trlabel="See All Roles">see all roles <span class="arrow-down"></span></a>
 
+    </p>
 
-    <a href="" class="next-arrow second"></a>
+    <a href="" id="next-two" class="next-arrow second" smooth-scroll-jquery target="next-three" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
-    <h2>SEE THE WORLD</h2>
+    <h2 id="title-one">{{loveTitleOne}}</h2>
 
     <div class="vidcontainer">
-      <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="video" data-traction="played" data-trlabel="women_in_the_army" style="visibility: visible;">
+      <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
         <div class="content-container">
           <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
           <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
@@ -120,10 +147,10 @@
       </a>
     </div>
 
-    <a href="" class="next-arrow second"></a>
+    <a href="" id="next-three" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
-    <h2>JOIN A TEAM</h2>
-
+    <h2 id="title-two">{{loveTitleTwo}}</h2>
+  <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
     <!-- Place somewhere in the <body> of your page -->
   <!-- <script type="text/ng-template" id="/slider.html">
       <div class="flexslider">
@@ -147,7 +174,7 @@
     </div>
     <div id="carousel" class="flexslider carousel" carousel>
       <ul class="slides">
-        <li ng-repeat="slides in slider">
+        <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
           <img ng-src="assets/images/{{slides.img}}" />
         </li>
       </ul>
@@ -155,11 +182,11 @@
 
   </div>  
 
-  <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
-  <a href="" class="next-arrow second"></a>
+
+  <a href="" id="next-four" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
 
-  <div class="postcard-gallery" parallax>
+  <div class="postcard-gallery" id="title-three" parallax>
     <div class="main" class="col-md-12">
       <img src="assets/images/{{postcards.main}}" alt="">
     </div>
@@ -170,8 +197,8 @@
     <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
       <img src="assets/images/{{postcards.subtwo}}" alt="">
     </div>
-    <div class="copy col-md-7">
-      <h2>{{ postcards.header }}</h2>
+    <div class="copy col-md-6">
+      <h2 class="title-three">{{loveTitleThree}}</h2>
       <hr>
       <p>{{postcards.text}}</p>    
     </div>
@@ -181,33 +208,30 @@
 
   <div class="clearfix"></div>
   <p class="text"></p>
-  <a href="" class="next-arrow second"></a>
+  <a href="" id="next-five" class="next-arrow second" smooth-scroll-jquery target="back-top" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     <div class="clearfix"></div>
     <br><br>
     <div class="rolescontainer">
       <div class="filter-container col-md-12">
-        <div class="title col-md-8"><h3>SEE YOUR ROLES</h3></div>
-        <div filterDir class="filter col-md-4">
-          <select name="filterjobs" id="filterjobs" ng-change="filterJob()" ng-model="form.type" value="All">
-            
-            <option ng-repeat="job in filters[&quot;'Jobs'&quot;]" value="{{job}}">{{job}}</option>
-
-          </select>
-
-          <select ng-model="blah" ng-options="item.ID as item.Title for item in items"></select>
+        <div class="title col-md-8 col-sm-12"><h3>SEE YOUR ROLES</h3></div>
+        <div filter-dir class="filter col-md-4 col-sm-12">
+          
+          <select ng-model='form.type' required ng-options='option.value as option.name for option in typeOptions' ng-change="filterJob()"></select>
+          <p>Showing</p>
+        
         </div>
       </div>
       
       <div class="clearfix"></div>
-      <ul>
-        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in secondaryJobs.WyltPublishedJobs"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}">
+      <ul class="secondary-roles">
+        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in secondaryJobs.WyltPublishedJobs" ng-hide="{{items.isPrimaryJob}}" data-service-name="{{items.serviceName}}"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}" on-finish-render="ngRepeatFinished">
                 <div data-job-entry-key="" class="job card {{items.serviceName}}">
 
                   <div class="front">
 
                     <div class="border"></div>
-                    <img src="assets/images/{{items.jobImageURL}}">
+                    <img src="{{items.jobImageURL}}">
                     
                     <span class="arrow"></span>
                     
@@ -227,7 +251,7 @@
                   </div>
 
                   <div class="desc-indepth back">
-                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Save_Job">
+                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Secondary">
                     <img src="assets/images/icon-close.jpg" alt="" class="close-card">
                     <div class="job  {{items.serviceName}}">
                     <div class="border"></div>
@@ -247,20 +271,20 @@
                       
                       <div class="clearfix"></div>
 
-                      <a id="" class="save-job" title="Save this job" data-job-id=" {{items.publishedJobId}}" style="display: block;">
-                                        <span class="icon-star"></span>
-                                        <span class="text">
-                <a href="javascript:;" class="save-job">SAVE THIS JOB</a>
-            </span>
-                                    </a>
+                            <a id="" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL_Secondary" data-trlabel="{{items.jobName}}" class="save-job secondary" title="Save this job" data-job-id="{{ items.publishedJobId }}">
+                                <span class="icon-star"></span>
+                                <span class="text"></span>
+                            </a>
 
+
+            
                       <hr>
-                        <a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="More_Info" target="_blank" class="info button col-md-6 paddingright">
+                        <a href="{{items.jobURL}}" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="More_Info_DWYL_Secondary" data-trlabel="{{items.jobName}}" target="_blank" class="info button col-md-6 paddingright">
                                             <span class="">
                                                 MORE INFO
                                             </span>
                                         </a><!--
-                    --><a href="{{}}" data-tracking="true" data-trcategory="JobFinderTool" data-traction="Click" data-trlabel="Apply_Now" target="_blank" class="apply button col-md-6 paddingleft">
+                    --><a href="{{items.applyURL}}" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Apply_Now_DWYL_Secondary" data-trlabel="{{items.jobName}}" target="_blank" class="apply button col-md-6 paddingleft">
             <span class="">
                 APPLY NOW
                 <div class="triangle"></div>
@@ -283,4 +307,51 @@
 
 
   </div>
+
+    <!-- all roles buttons -->
+
+
+    <div class="container see-all">
+
+    <h3 class="text-center">SEE ALL ROLES</h3>
+
+          <div class="button-container col-md-4 col-xs-12">
+          <p class="text-center see-more">
+          
+          <a href="/navy/jobsDirectory/" class="btn btn-lg navy"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Navy" data-trlabel="See All Roles_Navy">navy roles <span class="arrow-right"></span></a>    
+          
+          </p>      
+        </div>
+
+        <div class="button-container col-md-4 col-xs-12">
+          <p class="text-center see-more">
+          
+          <a href="/army/jobsDirectory/" class="btn btn-lg army"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Army" data-trlabel="See All Roles_Army">army roles <span class="arrow-right"></span></a>    
+          
+          </p>      
+        </div>
+
+        <div class="button-container col-md-4 col-xs-12">
+          <p class="text-center see-more">
+          
+          <a href="/airforce/jobsDirectory/" class="btn btn-lg airforce"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_AirForce" data-trlabel="See All Roles_AirForce">air force roles <span class="arrow-right"></span></a>    
+          
+          </p>      
+        </div>   
+    </div>
+     
+
+    <a id="back-top" class="back-top" smooth-scroll-jquery target="" offset="0" id="back-top" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Back_to_top" data-trlabel="Back_to_top">
+      <div class="top-arrow"></div>
+      <span>BACK TO TOP</span>
+    </a>
+
+<!--     <div class="button-container">
+      <p class="text-center see-more">
+      
+      <a href="/recruitmentCentre/jobsDirectory/" class="btn btn-lg"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles" data-trlabel="See All Roles">see all roles <span class="arrow-right"></span></a>    
+      
+      </p>      
+    </div>
+ -->
 </div><!-- end .results-page -->
