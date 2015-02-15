@@ -28,7 +28,7 @@
 
   <div results class="container">
 
-  <div class="results text-center">
+  <div class="results text-center" data-template-one="{{templateOne}}" data-template-two="{{templateTwo}}" data-template-three="{{templateThree}}">
 
     <h1><div class="you">YOU</div> SAID YOU'D LOVE TO</h1>
     <h3 class="titles">{{loveTitleOne}}, {{loveTitleTwo}} AND TO {{loveTitleThree}}.</h3>
@@ -131,80 +131,261 @@
     </p>
 
     <a href="" id="next-two" class="next-arrow second" smooth-scroll-jquery target="next-three" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
-
-    <h2 id="title-one">{{loveTitleOne}}</h2>
-
-    <div class="vidcontainer">
-      <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
-        <div class="content-container">
-          <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-          <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
-            <div class="playbtn"></div>
-          </div>
     
-          <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
-        </div>
-      </a>
+
+    <!-- VIDEO SECTION -->
+
+    <!-- VIDEO 1 -->
+    <div class="videosection one">
+      <h2 id="title-one">{{loveTitleOne}}</h2>
+
+      <div class="vidcontainer">
+        <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
+          <div class="content-container">
+            <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
+            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
+              <div class="playbtn"></div>
+            </div>
+      
+            <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
+          </div>
+        </a>
+      </div>
+    </div>    
+    <!-- END VIDEO 1 -->
+
+    <!-- VIDEO 2 -->
+    <div class="videosection two">
+      <h2 id="title-one">{{loveTitleTwo}}</h2>
+
+      <div class="vidcontainer">
+        <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
+          <div class="content-container">
+            <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
+            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
+              <div class="playbtn"></div>
+            </div>
+      
+            <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
+          </div>
+        </a>
+      </div>
     </div>
+    <!-- END VIDEO 2 -->
+
+    <!-- VIDEO 3 -->
+    <div class="videosection three">
+      <h2 id="title-one">{{loveTitleThree}}</h2>
+
+      <div class="vidcontainer">
+        <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
+          <div class="content-container">
+            <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
+            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
+              <div class="playbtn"></div>
+            </div>
+      
+            <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- END VIDEO 3 -->
+
+    <!-- END VIDEO SECTION -->        
 
     <a href="" id="next-three" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
-
-    <h2 id="title-two">{{loveTitleTwo}}</h2>
-  <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
-    <!-- Place somewhere in the <body> of your page -->
-  <!-- <script type="text/ng-template" id="/slider.html">
-      <div class="flexslider">
-          <ul class="slides">
-              <li ng-repeat="x in items">
-                  <img ng-src="{{x}}" />
-              </li>
-          </ul>
-      </div>
-  </script>
-
-  <div slider items="arr"></div> -->
-  <div class="slider-container">
     
-    <div id="slider" class="flexslider slider" slider>
-      <ul class="slides">
-        <li ng-repeat="slides in slider">
-          <img ng-src="assets/images/{{slides.img}}" />
-        </li>
-      </ul>
+    <!-- IMAGE GALLERY SECTION -->
+    <!-- IMAGE GALLERY 1 -->
+    <div class="gallerysection one">
+    <h2 id="title-two">{{loveTitleOne}}</h2>
+    <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
+    <!-- Place somewhere in the <body> of your page -->
+    <!-- <script type="text/ng-template" id="/slider.html">
+        <div class="flexslider">
+            <ul class="slides">
+                <li ng-repeat="x in items">
+                    <img ng-src="{{x}}" />
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <div slider items="arr"></div> -->
+    <div class="slider-container">
+      
+      <div id="slider" class="flexslider slider" slider>
+        <ul class="slides">
+          <li ng-repeat="slides in slider">
+            <img ng-src="assets/images/{{slides.img}}" />
+          </li>
+        </ul>
+      </div>
+      <div id="carousel" class="flexslider carousel" carousel>
+        <ul class="slides">
+          <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
+            <img ng-src="assets/images/{{slides.img}}" />
+          </li>
+        </ul>
+      </div>
+
+    </div>  
     </div>
-    <div id="carousel" class="flexslider carousel" carousel>
-      <ul class="slides">
-        <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
-          <img ng-src="assets/images/{{slides.img}}" />
-        </li>
-      </ul>
+    <!-- END IMAGE GALLERY 1 -->
+
+    <!-- IMAGE GALLERY 2 -->
+    <div class="gallerysection two">
+    <h2 id="title-two">{{loveTitleTwo}}</h2>
+    <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
+    <!-- Place somewhere in the <body> of your page -->
+    <!-- <script type="text/ng-template" id="/slider.html">
+        <div class="flexslider">
+            <ul class="slides">
+                <li ng-repeat="x in items">
+                    <img ng-src="{{x}}" />
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <div slider items="arr"></div> -->
+    <div class="slider-container">
+      
+      <div id="slider" class="flexslider slider" slider>
+        <ul class="slides">
+          <li ng-repeat="slides in slider">
+            <img ng-src="assets/images/{{slides.img}}" />
+          </li>
+        </ul>
+      </div>
+      <div id="carousel" class="flexslider carousel" carousel>
+        <ul class="slides">
+          <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
+            <img ng-src="assets/images/{{slides.img}}" />
+          </li>
+        </ul>
+      </div>
+
     </div>
-
-  </div>  
-
-
-  <a href="" id="next-four" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    </div>  
+    <!-- END IMAGE GALLERY 2 -->
 
 
-  <div class="postcard-gallery" id="title-three" parallax>
-    <div class="main" class="col-md-12">
-      <img src="assets/images/{{postcards.main}}" alt="">
+    <!-- IMAGE GALLERY 3 -->
+    <div class="gallerysection three">
+    <h2 id="title-two">{{loveTitleThree}}</h2>
+    <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
+    <!-- Place somewhere in the <body> of your page -->
+    <!-- <script type="text/ng-template" id="/slider.html">
+        <div class="flexslider">
+            <ul class="slides">
+                <li ng-repeat="x in items">
+                    <img ng-src="{{x}}" />
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <div slider items="arr"></div> -->
+    <div class="slider-container">
+      
+      <div id="slider" class="flexslider slider" slider>
+        <ul class="slides">
+          <li ng-repeat="slides in slider">
+            <img ng-src="assets/images/{{slides.img}}" />
+          </li>
+        </ul>
+      </div>
+      <div id="carousel" class="flexslider carousel" carousel>
+        <ul class="slides">
+          <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
+            <img ng-src="assets/images/{{slides.img}}" />
+          </li>
+        </ul>
+      </div>
+
     </div>
+    </div>  
+    <!-- END IMAGE GALLERY 3 -->        
+    <!-- END IMAGE GALLERY SECTION -->
 
-    <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
-      <img src="assets/images/{{postcards.subone}}" alt="">
-    </div>
-    <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
-      <img src="assets/images/{{postcards.subtwo}}" alt="">
-    </div>
-    <div class="copy col-md-6">
-      <h2 class="title-three">{{loveTitleThree}}</h2>
-      <hr>
-      <p>{{postcards.text}}</p>    
-    </div>
+    <a href="" id="next-four" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
+    <!-- POSTCARD SECTION -->
+    <!-- POSTCARD 1 -->
+    <div class="postcardsection one">
+    <div class="postcard-gallery" id="title-three" parallax>
+      <div class="main" class="col-md-12">
+        <img src="assets/images/{{postcards.main}}" alt="">
+      </div>
+
+      <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
+        <img src="assets/images/{{postcards.subone}}" alt="">
+      </div>
+      <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
+        <img src="assets/images/{{postcards.subtwo}}" alt="">
+      </div>
+      <div class="copy col-md-6">
+        <h2 class="title-three">{{loveTitleOne}}</h2>
+        <hr>
+        <p>{{postcards.text}}</p>    
+      </div>
 
 
-  </div><!-- end .postcard-gallery -->
+    </div><!-- end .postcard-gallery -->
+    </div>
+    <!-- END POSTCARD 1 -->
+    <div class="clearfix"></div>
+    <!-- POSTCARD 2 -->
+    <div class="postcardsection two">
+    <div class="postcard-gallery" id="title-three" parallax>
+      <div class="main" class="col-md-12">
+        <img src="assets/images/{{postcards.main}}" alt="">
+      </div>
+
+      <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
+        <img src="assets/images/{{postcards.subone}}" alt="">
+      </div>
+      <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
+        <img src="assets/images/{{postcards.subtwo}}" alt="">
+      </div>
+      <div class="copy col-md-6">
+        <h2 class="title-three">{{loveTitleTwo}}</h2>
+        <hr>
+        <p>{{postcards.text}}</p>    
+      </div>
+
+
+    </div><!-- end .postcard-gallery -->
+    </div>
+    <!-- END POSTCARD 2 -->
+    <div class="clearfix"></div>
+    <!-- POSTCARD 3 -->
+    <div class="postcardsection three">
+    <div class="postcard-gallery" id="title-three" parallax>
+      <div class="main" class="col-md-12">
+        <img src="assets/images/{{postcards.main}}" alt="">
+      </div>
+
+      <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
+        <img src="assets/images/{{postcards.subone}}" alt="">
+      </div>
+      <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
+        <img src="assets/images/{{postcards.subtwo}}" alt="">
+      </div>
+      <div class="copy col-md-6">
+        <h2 class="title-three">{{loveTitleThree}}</h2>
+        <hr>
+        <p>{{postcards.text}}</p>    
+      </div>
+
+
+    </div><!-- end .postcard-gallery -->
+    </div>
+    <!-- END POSTCARD 3 -->
+
+    <!-- END POSTCARD SECTION -->
 
   <div class="clearfix"></div>
   <p class="text"></p>

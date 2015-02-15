@@ -557,6 +557,93 @@ a.btn {
 
 
 .results {
+
+	// TEMPLATE STUFF
+	.videosection {
+		display: none;
+	}
+	.gallerysection {
+		display: none;
+	}
+	.postcardsection {
+		display: none;
+	}
+
+	// postcard sections
+	&[data-template-one='1'] {
+		.postcardsection {
+			&.one {
+				display: block;
+			}
+		}
+	}
+
+	&[data-template-two='1'] {
+		.postcardsection {
+			&.two {
+				display: block;
+			}
+		}
+	}
+
+	&[data-template-three='1'] {
+		.postcardsection {
+			&.three {
+				display: block;
+			}
+		}
+	}
+
+	// video sections
+	&[data-template-one='2'] {
+		.videosection {
+			&.one {
+				display: block;
+			}
+		}
+	}
+
+	&[data-template-two='2'] {
+		.videosection {
+			&.two {
+				display: block;
+			}
+		}
+	}
+
+	&[data-template-three='2'] {
+		.videosection {
+			&.three {
+				display: block;
+			}
+		}
+	}
+
+	// gallery sections
+	&[data-template-one='3'] {
+		.gallerysection {
+			&.one {
+				display: block;
+			}
+		}
+	}
+
+	&[data-template-two='3'] {
+		.gallerysection {
+			&.two {
+				display: block;
+			}
+		}
+	}
+
+	&[data-template-three='3'] {
+		.gallerysection {
+			&.three {
+				display: block;
+			}
+		}
+	}
+
 	padding-top: 30px;
 
 	h1 {

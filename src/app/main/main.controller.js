@@ -340,12 +340,7 @@ angular.module('womenInAdf')
     // disable check for now
     //$rootScope.savedLoves = [1,2,3];
     // remove the above
-    // set url for video
-    setTimeout(function() {
-      $scope.customVid = 'sMKoNBRZM1M';
-      console.log('video loaded?');
-      $scope.videoName = 'custom video name';
-    }, 2000);
+
     
     // show placeholder
     $scope.placeHolder = true;
@@ -384,7 +379,7 @@ angular.module('womenInAdf')
     $http.post('/women-in-adf/services/GetJobs.ashx', jobsData)
             .error(function (jobsData, data, status, headers, config, response, scope) {
                 
-            /*
+            
             $scope.jobs = {"WyltPublishedJobs":[
               {
                 "interestId": 2,
@@ -773,7 +768,7 @@ angular.module('womenInAdf')
                 "applyURL": "/olat?PublishedJobID=35382"
               }]
             };
-            */
+            
             console.log('No loves picked');
 
 
@@ -790,7 +785,7 @@ angular.module('womenInAdf')
             .error(function (benefitsData, data, status, headers, config, response, scope) {
                 
             $scope.benefitsInfo = {
-                "benefits" :
+                "WyltBenefitsData" :
                 [
                     {
                         "type" : "1",
@@ -833,6 +828,11 @@ angular.module('womenInAdf')
             console.log('No benefits picked');
             console.log($scope.benefitsInfo);
             console.info(' here lies the STATIC benefitsData ');
+
+            $scope.templateOne = $scope.benefitsInfo.WyltBenefitsData[0].template;
+            $scope.templateTwo = $scope.benefitsInfo.WyltBenefitsData[1].template;
+            $scope.templateThree = $scope.benefitsInfo.WyltBenefitsData[2].template;
+
             })
             .success(function (benefitsData, data, status, headers, config, response, scope) {
                  $scope.benefitsInfo = benefitsData;
@@ -851,8 +851,10 @@ angular.module('womenInAdf')
     console.log('resultsCtrl ' + $rootScope.savedLoves );
 
 
+
+    
     //$scope.slider = $scope.benefitsInfo.WyltBenefitsData[2].imageGallery;
-    /*
+    
     $scope.slider = [
       {
         'img': 'love1.jpg'
@@ -891,7 +893,7 @@ angular.module('womenInAdf')
         'img': 'love12.jpg'
       }
     ];
-    */
+    
     $scope.postcards = {
       main:  'love1.jpg',
       subone:  'love2.jpg',
@@ -899,6 +901,14 @@ angular.module('womenInAdf')
       header: 'LEAD THE WAY',
       text:  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod libero purus, sed tempor purus consectetur ut. Ut ac pretium sem, quis malesuada quam. Donec vestibulum tortor ac leo consequat malesuada vel non risus. Quisque molestie aliquet laoreet. Aenean vel elementum ex. Vivamus diam ex, consequat nec volutpat a, accumsan faucibus ante. Maecenas non tincidunt elit, et dictum orci. Donec fermentum libero eget scelerisque convallis. Vestibulum mi libero, porta id dignissim at, placerat eget magna.'
     };
+
+    // set url for video
+    setTimeout(function() {
+      $scope.customVid = 'sMKoNBRZM1M';
+      console.log('video loaded?');
+      $scope.videoName = 'custom video name';
+    }, 2000);
+
 
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
         //you also get the actual event object
