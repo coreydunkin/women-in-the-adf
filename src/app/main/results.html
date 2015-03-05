@@ -1,6 +1,8 @@
 <div class="results-page">
   <div class="subnav">
-    <a ui-sref="home" class="home"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Change_DWYL" data-trlabel="Change_DWYL">
+
+
+    <a class="home"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Change_DWYL" data-trlabel="Change_DWYL" ng-click="doTheBack()">
       <span class="arrow-left"></span><span class="mobile-hide">CHANGE MY LOVES</span>
     </a>
 
@@ -23,7 +25,8 @@
         <a class="googleplus" href="" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Linkedin" data-trlabel="Share Button Tracking"><span class="icon-google-plus"></span></a>
         </li>
 
-      </ul>     
+      </ul>
+ 
   </div>
 
   <div results class="container">
@@ -31,18 +34,31 @@
   <div class="results text-center" data-template-one="{{templateOne}}" data-template-two="{{templateTwo}}" data-template-three="{{templateThree}}">
 
     <h1><div class="you">YOU</div> SAID YOU'D LOVE TO</h1>
-    <h3 class="titles">{{loveTitleOne}}, {{loveTitleTwo}} AND TO {{loveTitleThree}}.</h3>
+    <h3 class="titles">{{loveTitleOne}}, {{loveTitleTwo}} AND {{loveTitleThree}}.</h3>
     <a href="" id="next-one" class="next-arrow" smooth-scroll-jquery target="next-two" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
     <hr />  
 
     <p class="summary">As part of the Australian Defence Force you’ll get the opportunity to {{longBlurbOne}} You’ll get the chance to {{longBlurbTwo}} Plus in every role you’ll get {{shortBlurbOne}}</p>
 
 
-
-
     <h3 class="roles-header">WE THINK YOU'LL LOVE THESE ROLES:</h3> 
+    
+    <div class="loader-container">
+        <span class="loader" ng-hide="loaderanim">
+          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="50px" height="50px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+          <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+
+            </path>
+          </svg>
+        </span>
+
+    </div>
+
+
 
     <div class="rolescontainer">
+
       <ul>
         <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items in jobs.WyltPublishedJobs" ng-show="{{items.isPrimaryJob}}" data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}" on-finish-render="ngRepeatFinished">
                 <div data-job-entry-key="" class="job card {{items.serviceName}}">
@@ -73,12 +89,12 @@
                  
                       
                     
-                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Save_Job_DWYL">
+                    <img src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Save_Job_DWYL">
                     <img src="assets/images/icon-close.jpg" alt="" class="close-card">
                     <div class="job  {{items.serviceName}}">
                     <div class="border"></div>
                     <div class="inner">
-                      <div class="top-container" ng-click="pinJob( job.jobEntryKey )">
+                      <div class="top-container">
                         <h3> {{items.serviceName}} </h3>
                         <h2 class="{{items.serviceName}}">{{items.jobName}}</h2>
                         <hr>
@@ -126,81 +142,94 @@
     
     <p class="text-center">
       
-      <a class="btn btn-lg see-all" data-tracking="true" smooth-scroll-jquery target="next-five" data-trcategory="{{trackingCategory}}" data-traction="See All Roles" offset="0" data-trlabel="See All Roles">see all roles <span class="arrow-down"></span></a>
+      <a class="btn btn-lg see-all" data-tracking="true" smooth-scroll-jquery target="secondaryroles" data-trcategory="{{trackingCategory}}" data-traction="See All Roles" offset="0" data-trlabel="See More Roles">see more roles <span class="arrow-down"></span></a>
 
     </p>
 
-    <a href="" id="next-two" class="next-arrow second" smooth-scroll-jquery target="next-three" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
-    
+    <div id="next-two"></div>
+
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-three" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
 
     <!-- VIDEO SECTION -->
 
     <!-- VIDEO 1 -->
     <div class="videosection one">
-      <h2 id="title-one">{{loveTitleOne}}</h2>
-
+      <h2 id="title-one">{{titleOne}}</h2>
+      <p class="videotext text-center" ng-bind-html="videoOneText"></p>
+      <br>  
       <div class="vidcontainer">
-        <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
-          <div class="content-container">
+
+        <a ng-click="playerOne.playVideo();hidePlaceHolder();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
             <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
+            <div class="imgPlaceholder" ng-show="placeHolder()" style="background-image: url()">
               <div class="playbtn"></div>
             </div>
       
-            <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
-          </div>
+            <youtube-video video-url="videoOne" player="playerOne" player-vars="playerVars"></youtube-video>      
         </a>
+
       </div>
+
+
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
     </div>    
     <!-- END VIDEO 1 -->
 
     <!-- VIDEO 2 -->
     <div class="videosection two">
-      <h2 id="title-one">{{loveTitleTwo}}</h2>
-
+      <h2 id="title-one">{{titleTwo}}</h2>
+      <p class="videotext text-center" ng-bind-html="videoTwoText"></p>
+      <br>  
       <div class="vidcontainer">
-        <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
-          <div class="content-container">
+        <a ng-click="playerTwo.playVideo();hidePlaceHolder();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
             <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
+            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url()">
               <div class="playbtn"></div>
             </div>
       
-            <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
-          </div>
+            <youtube-video video-url="videoTwo" player="playerTwo" player-vars="playerVars"></youtube-video> 
         </a>
       </div>
+
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
     </div>
     <!-- END VIDEO 2 -->
 
     <!-- VIDEO 3 -->
     <div class="videosection three">
-      <h2 id="title-one">{{loveTitleThree}}</h2>
-
+      <h2 id="title-one">{{titleThree}}</h2>
+      <p class="videotext text-center" ng-bind-html="videoThreeText"></p>
+      <br>  
       <div class="vidcontainer">
-        <a ng-click="playVideo();player.playVideo();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
-          <div class="content-container">
+        <a ng-click="playerThree.playVideo();hidePlaceHolder();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
             <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url(assets/images/postcard-main.jpg)">
+            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url()">
               <div class="playbtn"></div>
             </div>
       
-            <youtube-video video-id="customVid" player="player" player-vars="playerVars"></youtube-video>      
-          </div>
+            <youtube-video video-url="videoThree" player="playerThree" player-vars="playerVars"></youtube-video>      
         </a>
       </div>
+
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
     </div>
     <!-- END VIDEO 3 -->
 
+    <div id="next-three" class="negative-next"></div>
+
     <!-- END VIDEO SECTION -->        
 
-    <a href="" id="next-three" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
     
     <!-- IMAGE GALLERY SECTION -->
     <!-- IMAGE GALLERY 1 -->
     <div class="gallerysection one">
-    <h2 id="title-two">{{loveTitleOne}}</h2>
-    <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
+    <h2 id="title-two">{{titleOne}}</h2>
+    <p class="text" ng-bind-html="imageGalleryOneText"></p>
     <!-- Place somewhere in the <body> of your page -->
     <!-- <script type="text/ng-template" id="/slider.html">
         <div class="flexslider">
@@ -213,31 +242,37 @@
     </script>
 
     <div slider items="arr"></div> -->
-    <div class="slider-container">
+    <div class="slider-container" slider-one>
       
-      <div id="slider" class="flexslider slider" slider>
+      <div id="sliderOne" class="flexslider slider">
         <ul class="slides">
-          <li ng-repeat="slides in slider">
-            <img ng-src="assets/images/{{slides.img}}" />
+          <li ng-repeat="slides in imageGalleryOne">
+            <img ng-src="{{imageGalleryOne[$index]}}" />
           </li>
         </ul>
       </div>
-      <div id="carousel" class="flexslider carousel" carousel>
+      <div id="carouselOne" class="flexslider carousel">
         <ul class="slides">
-          <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
-            <img ng-src="assets/images/{{slides.img}}" />
+          <li ng-repeat="slides in imageGalleryOne" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
+            <img ng-src="{{imageGalleryOne[$index]}}" />
           </li>
         </ul>
       </div>
 
     </div>  
+
+
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
+
+
     </div>
     <!-- END IMAGE GALLERY 1 -->
 
     <!-- IMAGE GALLERY 2 -->
     <div class="gallerysection two">
-    <h2 id="title-two">{{loveTitleTwo}}</h2>
-    <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
+    <h2 id="title-two">{{titleTwo}}</h2>
+    <p class="text" ng-bind-html="imageGalleryTwoText"></p>
     <!-- Place somewhere in the <body> of your page -->
     <!-- <script type="text/ng-template" id="/slider.html">
         <div class="flexslider">
@@ -250,32 +285,36 @@
     </script>
 
     <div slider items="arr"></div> -->
-    <div class="slider-container">
+    <div class="slider-container" slider-two>
       
-      <div id="slider" class="flexslider slider" slider>
+      <div id="sliderTwo" class="flexslider slider">
         <ul class="slides">
-          <li ng-repeat="slides in slider">
-            <img ng-src="assets/images/{{slides.img}}" />
+          <li ng-repeat="slides in imageGalleryTwo">
+            <img ng-src="{{imageGalleryTwo[$index]}}" />
           </li>
         </ul>
       </div>
-      <div id="carousel" class="flexslider carousel" carousel>
+      <div id="carouselTwo" class="flexslider carousel">
         <ul class="slides">
-          <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
-            <img ng-src="assets/images/{{slides.img}}" />
+          <li ng-repeat="slides in imageGalleryTwo" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
+            <img ng-src="{{imageGalleryTwo[$index]}}" />
           </li>
         </ul>
       </div>
 
     </div>
+
+
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
     </div>  
     <!-- END IMAGE GALLERY 2 -->
 
 
     <!-- IMAGE GALLERY 3 -->
     <div class="gallerysection three">
-    <h2 id="title-two">{{loveTitleThree}}</h2>
-    <p class="text">Sport is not just a way to keep fit, it’s encouraged, to develop teamwork and camaraderie within the Australian Defence Force. Discover all of the different sports our women play.</p>
+    <h2 id="title-two">{{titleThree}}</h2>
+    <p class="text" ng-bind-html="imageGalleryThreeText"></p>
     <!-- Place somewhere in the <body> of your page -->
     <!-- <script type="text/ng-template" id="/slider.html">
         <div class="flexslider">
@@ -288,112 +327,132 @@
     </script>
 
     <div slider items="arr"></div> -->
-    <div class="slider-container">
+    <div class="slider-container" slider-three>
       
-      <div id="slider" class="flexslider slider" slider>
+      <div id="sliderThree" class="flexslider slider">
         <ul class="slides">
-          <li ng-repeat="slides in slider">
-            <img ng-src="assets/images/{{slides.img}}" />
+          <li ng-repeat="slides in imageGalleryThree">
+            <img ng-src="{{imageGalleryThree[$index]}}" />
           </li>
         </ul>
       </div>
-      <div id="carousel" class="flexslider carousel" carousel>
+      <div id="carouselThree" class="flexslider carousel">
         <ul class="slides">
-          <li ng-repeat="slides in slider" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
-            <img ng-src="assets/images/{{slides.img}}" />
+          <li ng-repeat="slides in imageGalleryThree" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Image Gallery click" data-trlabel="Image Gallery click">
+            <img ng-src="{{imageGalleryThree[$index]}}" />
           </li>
         </ul>
       </div>
 
     </div>
+
+    <a href=""  class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
+
     </div>  
     <!-- END IMAGE GALLERY 3 -->        
     <!-- END IMAGE GALLERY SECTION -->
 
-    <a href="" id="next-four" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <div id="next-four" class="negative-next"></div>
+
+    <div class="tester"></div>
 
     <!-- POSTCARD SECTION -->
     <!-- POSTCARD 1 -->
     <div class="postcardsection one">
-    <div class="postcard-gallery" id="title-three" parallax>
+    <div class="postcard-gallery" id="title-three">
       <div class="main" class="col-md-12">
-        <img src="assets/images/{{postcards.main}}" alt="">
+        <img src="{{postcardOneMain}}" alt="">
       </div>
 
       <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
-        <img src="assets/images/{{postcards.subone}}" alt="">
+        <img src="{{postcardOneSubOne}}" alt="">
       </div>
-      <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
-        <img src="assets/images/{{postcards.subtwo}}" alt="">
+      <div class="subtwo" data-1000="top:110%;" data-3500="top:-5%;">
+        <img src="{{postcardOneSubTwo}}" alt="">
       </div>
       <div class="copy col-md-6">
-        <h2 class="title-three">{{loveTitleOne}}</h2>
-        <hr>
-        <p>{{postcards.text}}</p>    
+        <h2 class="title-three">{{titleOne}}</h2>
+        <p ng-bind-html="postcardOneText"></p>    
       </div>
 
 
     </div><!-- end .postcard-gallery -->
+  <div class="clearfix"></div>
+  <br>
+  <!--<a href="" class="next-arrow second" smooth-scroll-jquery target="back-top" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>-->
+
     </div>
     <!-- END POSTCARD 1 -->
     <div class="clearfix"></div>
     <!-- POSTCARD 2 -->
     <div class="postcardsection two">
-    <div class="postcard-gallery" id="title-three" parallax>
+    <div class="postcard-gallery" id="title-three">
       <div class="main" class="col-md-12">
-        <img src="assets/images/{{postcards.main}}" alt="">
+        <img src="{{postcardTwoMain}}" alt="">
       </div>
 
       <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
-        <img src="assets/images/{{postcards.subone}}" alt="">
+        <img src="{{postcardTwoSubOne}}" alt="">
       </div>
-      <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
-        <img src="assets/images/{{postcards.subtwo}}" alt="">
+      <div class="subtwo" data-1000="top:110%;" data-3500="top:-5%;">
+        <img src="{{postcardTwoSubTwo}}" alt="">
       </div>
       <div class="copy col-md-6">
-        <h2 class="title-three">{{loveTitleTwo}}</h2>
-        <hr>
-        <p>{{postcards.text}}</p>    
+        <h2 class="title-three">{{titleTwo}}</h2>
+        <p ng-bind-html="postcardTwoText"></p>    
       </div>
 
 
     </div><!-- end .postcard-gallery -->
+  
+  <div class="clearfix"></div>
+  <br>
+
+  <!--<a href="" class="next-arrow second" smooth-scroll-jquery target="back-top" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>-->
+
     </div>
     <!-- END POSTCARD 2 -->
     <div class="clearfix"></div>
     <!-- POSTCARD 3 -->
     <div class="postcardsection three">
-    <div class="postcard-gallery" id="title-three" parallax>
+    <div class="postcard-gallery" id="title-three">
       <div class="main" class="col-md-12">
-        <img src="assets/images/{{postcards.main}}" alt="">
+        <img src="{{postcardThreeMain}}" alt="">
       </div>
 
       <div class="subone" data-1000="top:0%;" data-5000="top:90%;">
-        <img src="assets/images/{{postcards.subone}}" alt="">
+        <img src="{{postcardThreeSubOne}}" alt="">
       </div>
-      <div class="subtwo" data-1000="top:-5%;" data-3500="top:110%;">
-        <img src="assets/images/{{postcards.subtwo}}" alt="">
+      <div class="subtwo" data-1000="top:110%;" data-3500="top:-5%;">
+        <img src="{{postcardThreeSubTwo}}" alt="">
       </div>
       <div class="copy col-md-6">
-        <h2 class="title-three">{{loveTitleThree}}</h2>
-        <hr>
-        <p>{{postcards.text}}</p>    
+        <h2 class="title-three">{{titleThree}}</h2>
+        <p ng-bind-html="postcardThreeText"></p>    
       </div>
 
 
     </div><!-- end .postcard-gallery -->
+  <div class="clearfix"></div>
+  <br>
+
+  <!--<a href="" class="next-arrow second" smooth-scroll-jquery target="back-top" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>-->
+
     </div>
     <!-- END POSTCARD 3 -->
+
+    <div id="next-five" class="negative-next"></div>
 
     <!-- END POSTCARD SECTION -->
 
   <div class="clearfix"></div>
   <p class="text"></p>
-  <a href="" id="next-five" class="next-arrow second" smooth-scroll-jquery target="back-top" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+
 
     <div class="clearfix"></div>
     <br><br>
-    <div class="rolescontainer">
+    <div id="secondaryroles" class="rolescontainer">
       <div class="filter-container col-md-12">
         <div class="title col-md-8 col-sm-12"><h3>SEE YOUR ROLES</h3></div>
         <div filter-dir class="filter col-md-4 col-sm-12">
@@ -432,12 +491,12 @@
                   </div>
 
                   <div class="desc-indepth back">
-                    <img ng-click="pinJob( items.jobEntryKey )" src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Secondary">
+                    <img src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Secondary">
                     <img src="assets/images/icon-close.jpg" alt="" class="close-card">
                     <div class="job  {{items.serviceName}}">
                     <div class="border"></div>
                     <div class="inner">
-                      <div class="top-container" ng-click="pinJob( job.jobEntryKey )">
+                      <div class="top-container" >
                         <h3> {{items.serviceName}} </h3>
                         <h2 class="{{items.serviceName}}">{{items.jobName}}</h2>
                         <hr>
@@ -499,7 +558,7 @@
           <div class="button-container col-md-4 col-xs-12">
           <p class="text-center see-more">
           
-          <a href="/navy/jobsDirectory/" class="btn btn-lg navy"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Navy" data-trlabel="See All Roles_Navy">navy roles <span class="arrow-right"></span></a>    
+          <a href="/navy/#findjob" class="btn btn-lg navy"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Navy" data-trlabel="See All Roles_Navy">navy roles <span class="arrow-right"></span></a>    
           
           </p>      
         </div>
@@ -507,7 +566,7 @@
         <div class="button-container col-md-4 col-xs-12">
           <p class="text-center see-more">
           
-          <a href="/army/jobsDirectory/" class="btn btn-lg army"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Army" data-trlabel="See All Roles_Army">army roles <span class="arrow-right"></span></a>    
+          <a href="/army/#findjob" class="btn btn-lg army"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Army" data-trlabel="See All Roles_Army">army roles <span class="arrow-right"></span></a>    
           
           </p>      
         </div>
@@ -515,7 +574,7 @@
         <div class="button-container col-md-4 col-xs-12">
           <p class="text-center see-more">
           
-          <a href="/airforce/jobsDirectory/" class="btn btn-lg airforce"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_AirForce" data-trlabel="See All Roles_AirForce">air force roles <span class="arrow-right"></span></a>    
+          <a href="/airforce/#findjob" class="btn btn-lg airforce"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_AirForce" data-trlabel="See All Roles_AirForce">air force roles <span class="arrow-right"></span></a>    
           
           </p>      
         </div>   
@@ -536,3 +595,22 @@
     </div>
  -->
 </div><!-- end .results-page -->
+
+
+    <!-- Loader template -->
+<script type="text/ng-template"
+        id="example-loader.tpl.html">
+    <div class="flyover">
+        <div class="mask"></div>
+        <div class="alert alert-info">
+            <strong>Loading {{title}}...</strong>
+        </div>
+    </div>
+</script>
+
+<!-- show loader for GET methods -->
+<div ng-http-loader
+     methods="GET"
+     title="Foo"
+     ttl="5"
+     template="example-loader.tpl.html"></div> 

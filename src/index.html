@@ -26,9 +26,8 @@
 </head>
 
 <!-- a body tag must always be present for "browser-sync" to work, for this reason we have a body tag inside the html, however for ie8/ie9 it will break having a duplicate body tag, so this needs to be commented out for ie8/9 to work, conditional tags don't appear to work either -->
-<body>  
-</body>
-
+<!--<body>
+</body>-->
 
   <div class="women" ng-controller="ContainerCtrl">
     <!-- place in respond.js for ie8 --> 
@@ -41,8 +40,9 @@
     <!--[if lt IE 9]>
     <div class="ie8">
     <![endif]-->
-    
-    <div ui-view class="view" autoscroll="false"></div>
+
+            
+    <div ui-view class="view"></div>
 
     <!--[if lt IE 9]>
     </div>
@@ -68,6 +68,7 @@
     <script src="../bower_components/angular-flexslider/angular-flexslider.js"></script>
     <script src="../bower_components/waypoints/lib/noframework.waypoints.min.js"></script>
     <script src="../bower_components/matchHeight/jquery.matchHeight-min.js"></script>
+    <script src="../bower_components/angular-http-loader/app/package/js/angular-http-loader.min.js"></script>
     <!-- endbower -->
     <script src="../bower_components/angular-skrollr-directive/js/directives/skrollr.dir.js"></script>
     <script src="assets/non-bower-plugins/flexslider/jquery.flexslider.js"></script>
@@ -85,7 +86,7 @@
     <!-- build:js({.tmp,src}) scripts/app.js -->
     <script src="app/index.js"></script>
     <script src="app/main/main.controller.js"></script>
-    <script src="components/navbar/header.controller.js"></script>
+    <!--<script src="components/navbar/header.controller.js"></script>-->
 
     <!-- inject:partials -->
     <!-- angular templates will be automaticaly converted in js and inserted here -->

@@ -64,7 +64,7 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
     //.pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.replace('bower_components/bootstrap-sass-official/assets/fonts/bootstrap','fonts'))
-    .pipe($.csso())
+    //.pipe($.csso())
     .pipe(cssFilter.restore())
     .pipe(assets.restore())
     .pipe($.useref())
@@ -123,7 +123,7 @@ gulp.task('replaceHTML', [], function() {
 
 gulp.task('replaceJS', [], function() {
   gulp.src('dist/scripts/app.js')
-    .pipe(replace('src="assets/', 'src="/static/Women/assets/'))
+    .pipe(replace('="assets/', '="/static/Women/assets/'))
     .pipe(replace('background-image: url(assets/', 'background-image: url(/static/Women/assets/'))
     .pipe(gulp.dest('dist/scripts/'));
 });
