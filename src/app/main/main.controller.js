@@ -6,8 +6,15 @@
 //     };
 // });
 angular.module('womenInAdf').controller('ContainerCtrl', function($scope,
-    $state, $rootScope, historyService) {
+    $state, $rootScope, historyService, $sce) {
     // change tracking category based on desktop or mobile
+    // set youtube API
+    // Inject YouTube API script
+    var tag = document.createElement('script');
+    tag.src = "//www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
     $scope.trackingCategory = 'Do What you Love';
         if (
             /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
@@ -16,6 +23,13 @@ angular.module('womenInAdf').controller('ContainerCtrl', function($scope,
             $scope.placeHolder = false;
         };
     });
+angular.module('womenInAdf').factory('tracker', function () {
+    
+    return function (action, label) {
+        GoogleAnalyticsHelper.trackEvent("Do What you Love", action, label)
+    };
+
+});
 angular.module('womenInAdf').service('historyService', function($cookies) {
     var obj = {
         save: function(data) {
@@ -47,8 +61,11 @@ angular.module('womenInAdf').service('historyService', function($cookies) {
     return obj;
 });
 angular.module('womenInAdf').controller('MainCtrl', function($scope, $state,
-    $rootScope, historyService, $timeout) {
-    $scope.iphoneVideo = 'http://youtu.be/8HnPgTZw5fg';
+    $rootScope, historyService, $timeout, $sce) {
+    $scope.iphoneVideo = 'https://www.youtube.com/embed/8HnPgTZw5fg';
+
+
+
     $timeout(function() {
         $('.jumbotron h1').removeClass('hide').addClass(
             'animated fadeInDown');
@@ -132,7 +149,7 @@ angular.module('womenInAdf').controller('MainCtrl', function($scope, $state,
     }, {
         'key': 11,
         'class': 'twoline',
-        'title': 'work with your hands',
+        'title': 'learn how things work',
         'img': 'love11.jpg',
         'longBlurb': 'work with the latest machinery and technology, like ships, tanks and jets.',
         'shortBlurb': 'the chance to work on ships, tanks and jets.'
@@ -144,6 +161,8 @@ angular.module('womenInAdf').controller('MainCtrl', function($scope, $state,
         'longBlurb': 'try things you didn’t imagine personnel would do. There are roles for cooks, musicians, photographers and carpenters.',
         'shortBlurb': 'a competitive salary and financial help.'
     }];
+
+
     // SAVED DATA
     $scope.savedData = function(key, title) {
         ////console.log('click');
@@ -274,12 +293,27 @@ angular.module('womenInAdf').controller('MainCtrl', function($scope, $state,
         awesomeThing.rank = Math.random();
     });
 });
-angular.module('womenInAdf').controller('ResultsCtrl', function($scope, $rootScope, $state, $http, historyService, $timeout) {
+angular.module('womenInAdf').controller('ResultsCtrl', function($scope, $rootScope, $state, $http, historyService, $timeout, $sce) {
 
     /*$('body, html').animate({
         scrollTop: 0
     },600);*/
     //$(document).scrollTop(0);
+
+    $scope.videoTest = 'https://www.youtube.com/watch?v=x8dc2v2rPx0';
+
+
+
+
+    $scope.playBtnOne = false;
+    $scope.playBtnTwo = false;
+    $scope.playBtnThree = false;
+
+    //trust external sources
+    $rootScope.trustSrc = function (src) {
+        return $sce.trustAsResourceUrl(src);
+    }
+
 
     setTimeout(function(){
 
@@ -729,7 +763,7 @@ angular.module('womenInAdf').controller('ResultsCtrl', function($scope, $rootSco
                         "assets/images/love6.jpg"
                     ],
                     "imageText": "As a member of the ADF, you\'ll earn a highly competitive salary. Pay rates vary depending on your job and seniority, and will continue to increase with your career progression. Click here for the Australian Defence Force Salary Scales in the <a href=\"http://www.defencejobs.gov.au/navy/PayAndBenefits/payDetails.aspx\">Navy</a>, <a href=\"http://www.defencejobs.gov.au/army/army-life/what-you-will-be-paid\">Army</a> and <a href=\"http://www.defencejobs.gov.au/airforce/Lifestyle/pay-details\">Air Force</a>. ",
-                    "video": "http://youtu.be/8HnPgTZw5fg",
+                    "video": "https://www.youtube.com/embed/8HnPgTZw5fg",
                     "videoText": "As a member of the ADF, you\'ll earn a highly competitive salary. Pay rates vary depending on your job and seniority, and will continue to increase with your career progression. Click here for the Australian Defence Force Salary Scales in the <a href=\"http://www.defencejobs.gov.au/navy/PayAndBenefits/payDetails.aspx\">Navy</a>, <a href=\"http://www.defencejobs.gov.au/army/army-life/what-you-will-be-paid\">Army</a> and <a href=\"http://www.defencejobs.gov.au/airforce/Lifestyle/pay-details\">Air Force</a>. ",
                     "imageGallery": [
                         "assets/images/love1.jpg",
@@ -742,14 +776,14 @@ angular.module('womenInAdf').controller('ResultsCtrl', function($scope, $rootSco
                     "type": "1",
                     "name": "Leadership and mentoring",
                     "interests": [10, 11],
-                    "template": "1",
+                    "template": "3",
                     "image": [
                         "assets/images/love4.jpg",
                         "assets/images/love5.jpg",
                         "assets/images/love6.jpg"
                     ],
                     "imageText": "As a member of the ADF, you\'ll earn a highly competitive salary. Pay rates vary depending on your job and seniority, and will continue to increase with your career progression. Click here for the Australian Defence Force Salary Scales in the <a href=\"http://www.defencejobs.gov.au/navy/PayAndBenefits/payDetails.aspx\">Navy</a>, <a href=\"http://www.defencejobs.gov.au/army/army-life/what-you-will-be-paid\">Army</a> and <a href=\"http://www.defencejobs.gov.au/airforce/Lifestyle/pay-details\">Air Force</a>. ",
-                    "video": "http://youtu.be/8HnPgTZw5fg",
+                    "video": "https://www.youtube.com/embed/8HnPgTZw5fg",
                     "videoText": "As a member of the ADF, you\'ll earn a highly competitive salary. Pay rates vary depending on your job and seniority, and will continue to increase with your career progression. Click here for the Australian Defence Force Salary Scales in the <a href=\"http://www.defencejobs.gov.au/navy/PayAndBenefits/payDetails.aspx\">Navy</a>, <a href=\"http://www.defencejobs.gov.au/army/army-life/what-you-will-be-paid\">Army</a> and <a href=\"http://www.defencejobs.gov.au/airforce/Lifestyle/pay-details\">Air Force</a>. ",
                     "imageGallery": [
                         "assets/images/love1.jpg",
@@ -762,14 +796,14 @@ angular.module('womenInAdf').controller('ResultsCtrl', function($scope, $rootSco
                     "type": "1",
                     "name": "State of the art equipment",
                     "interests": [9, 11],
-                    "template": "3",
+                    "template": "1",
                     "image": [
                         "assets/images/love1.jpg",
                         "assets/images/love2.jpg",
                         "assets/images/love3.jpg"
                     ],
                     "imageText": "As a member of the ADF, you\'ll earn a highly competitive salary. Pay rates vary depending on your job and seniority, and will continue to increase with your career progression. Click here for the Australian Defence Force Salary Scales in the <a href=\"http://www.defencejobs.gov.au/navy/PayAndBenefits/payDetails.aspx\">Navy</a>, <a href=\"http://www.defencejobs.gov.au/army/army-life/what-you-will-be-paid\">Army</a> and <a href=\"http://www.defencejobs.gov.au/airforce/Lifestyle/pay-details\">Air Force</a>. ",
-                    "video": "http://youtu.be/8HnPgTZw5fg",
+                    "video": "https://www.youtube.com/embed/8HnPgTZw5fg",
                     "videoText": "As a member of the ADF, you\'ll earn a highly competitive salary. Pay rates vary depending on your job and seniority, and will continue to increase with your career progression. Click here for the Australian Defence Force Salary Scales in the <a href=\"http://www.defencejobs.gov.au/navy/PayAndBenefits/payDetails.aspx\">Navy</a>, <a href=\"http://www.defencejobs.gov.au/army/army-life/what-you-will-be-paid\">Army</a> and <a href=\"http://www.defencejobs.gov.au/airforce/Lifestyle/pay-details\">Air Force</a>. ",
                     "imageGallery": [
                         "assets/images/love1.jpg",
@@ -837,22 +871,22 @@ angular.module('womenInAdf').controller('ResultsCtrl', function($scope, $rootSco
             2].template;
         // VIDEOS
         // video 1 set
-        $timeout(function() {
+
             $scope.videoOne = $scope.benefitsInfo.WyltBenefitsData[
-                0].video;
+                0].video + '?enablejsapi=1';
             $scope.videoOneText = $scope.benefitsInfo.WyltBenefitsData[
                 0].videoText;
             // video 2 set
             $scope.videoTwo = $scope.benefitsInfo.WyltBenefitsData[
-                1].video;
+                1].video + '?enablejsapi=1';
             $scope.videoTwoText = $scope.benefitsInfo.WyltBenefitsData[
                 1].videoText;
             // video 3 set
             $scope.videoThree = $scope.benefitsInfo.WyltBenefitsData[
-                2].video;
+                2].video + '?enablejsapi=1';
             $scope.videoThreeText = $scope.benefitsInfo.WyltBenefitsData[
                 2].videoText;
-        }, 3500);
+
         // POSTCARDS
         // postcard 1 set
         $scope.postcardOneMain = $scope.benefitsInfo.WyltBenefitsData[0].image[0];
@@ -1321,13 +1355,17 @@ angular.module('womenInAdf').directive('results', function($rootScope, $state) {
             Waypoint.refreshAll();
             // reset button
             $scope.countbtn = true;
-            $scope.playVideo = function() {
-                // tell me if the interest is being picked up
-                // move the data back to the controller
-                ////console.log('VIDEO PLAY');
-                $scope.placeHolder = false;
-                ////console.log('play video');
-            };
+
+
+
+
+            // $scope.playVideo = function() {
+            //     // tell me if the interest is being picked up
+            //     // move the data back to the controller
+            //     ////console.log('VIDEO PLAY');
+            //     $scope.placeHolder = false;
+            //     ////console.log('play video');
+            // };
             $scope.hidePlaceHolder = function() {
                 $scope.placeHolder = false;
             }
@@ -1487,14 +1525,10 @@ angular.module('womenInAdf').directive('social', function($timeout) {
                 },
                 title: "HELLO",
                 enableCounter: false,
-                template: '<li class="mobile-share"><a href="" ng-click="social()"><span class="icon-link"></span></a></li>' +
-                    '<li class="fb"><a class="facebook" href=""><span class="icon-facebook"></span></a></li>' +
-                    '<li class="tw"><a class="twitter" href=""><span class="icon-twitter"></span></a></li>' +
-                    '<li class="in"><a href=""><span class="icon-linked-in"></span></a></li>' +
-                    '<li class="gp"><a class="googleplus" href=""><span class="icon-google-plus"></span></a></li>',
+                template: '<ul class="social"></ul>',
                 url: 'http://www.defencejobs.local/women-in-adf/',
                 enableHover: false,
-                enableTracking: true,
+                enableTracking: false,
                 render: function(api, options) {
 
                     function shareURL( referer ){
@@ -1503,7 +1537,14 @@ angular.module('womenInAdf').directive('social', function($timeout) {
 
                         if ( window.shareLoves ) {
                             //return chosen loves as query string in url for dynamic share
-                            return encodeURIComponent( document.location.href.split('#')[0] + '?referer=' + referer + '&loves=' +  window.shareLoves[0] + ',' + window.shareLoves[1] + ',' + window.shareLoves[2] );
+
+                            if ( referer === 'google' ) {
+                                //double encode query for google plus
+                                return encodeURIComponent( document.location.href.split('#')[0] + '?referer=' + referer + '&loves=' + encodeURIComponent( window.shareLoves[0] + ',' + window.shareLoves[1] + ',' + window.shareLoves[2] ) );
+                            } else {
+                                return encodeURIComponent( document.location.href.split('#')[0] + '?referer=' + referer + '&loves=' +  window.shareLoves[0] + ',' + window.shareLoves[1] + ',' + window.shareLoves[2] );
+                            }
+
                         } else {
                             //return vanilla url for sharing
                             return encodeURIComponent( document.location.href.split('#')[0] + '?referer=' + referer );
@@ -1512,16 +1553,30 @@ angular.module('womenInAdf').directive('social', function($timeout) {
                     }
 
                     $(api.element).on('click', '.twitter', function() {
-                        var title = $('meta[property="twitter:title"]').attr("content") ? $('meta[property="twitter:title"]').attr("content") : '';
+
+                        /*if ( window.shareLoves ) {
+                            var title = "I love to " +window.shareLoves[0]+ ", "+window.shareLoves[1]+" and "+window.shareLoves[2]+", and I can do it all in the Australian Defence Force. Do what you love <a href='http://defencejobs.gov.au/dowhatyoulove'>here</a>";
+                        } else {
+                            var title = "Find roles in the Australian Defence Force based on the things you love.";
+                        }*/
+
+                        var title = "Find roles in the Australian Defence Force based on the things you love.";
+                        GoogleAnalyticsHelper.trackEvent("Do What you Love", "Twitter", 'Share');
                         window.open('http://www.twitter.com/share?url=' + encodeURIComponent( document.location.href ) + '&sharetype=tw&text=' + encodeURIComponent(title), "window", "status = 1, height = 320, width = 640, resizable = 1");
+
                     });
                     $(api.element).on('click', '.facebook', function() {
+                        GoogleAnalyticsHelper.trackEvent("Do What you Love", "Facebook", 'Share');
+
                         window.open('http://www.facebook.com/sharer/sharer.php?u=' + shareURL('facebook') + '&display=popup', "window", "status = 1, height = 320, width = 640, resizable = 1");
+                        
                     });
                     $(api.element).on('click', '.googleplus', function() {
+                        GoogleAnalyticsHelper.trackEvent("Do What you Love", "GooglePlus", 'Share');
                         window.open('https://plus.google.com/share?url=' + shareURL('google'), "window", "status = 1, height = 320, width = 640, resizable = 1");
                     });
                     $(api.element).on('click', '.linkedin', function() {
+                        GoogleAnalyticsHelper.trackEvent("Do What you Love", "LinkedIn", 'Share');
                         window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + shareURL('linkedin') + '&sharetype=in', "window", "status = 1, height = 320, width = 640, resizable = 1");
                     });      
 
@@ -1621,3 +1676,118 @@ angular.module('womenInAdf').directive('onFinishRender', function($timeout) {
         }
     }
 });
+angular.module('womenInAdf').directive('herobg', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attr) {
+            //mobile useragent check
+            if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+                $(".herobg").removeClass('desktop').addClass('mobilebg');
+            };
+        }
+    }
+}); 
+angular.module('womenInAdf').directive('videoOne', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function($scope, element, attr) {
+        // VIDEO STUFF
+
+            // global variable for the player
+            var playerOne;
+
+            // this function gets called when API is ready to use
+            function onYouTubePlayerAPIReady() {
+              // create the global player from the specific iframe (#video)
+              playerOne = new YT.Player('videoOne', {
+                events: {
+                  // call this function when player is ready to use
+                  'onReady': onPlayerReady
+                }
+              });
+            }
+            function onPlayerReady(event) {
+                $scope.playVideoOne = function() {
+                    //console.log('play');
+                    //console.log(playerOne.playVideo());
+                    $scope.playBtnOne = true;
+                    playerOne.playVideo();
+                };  
+
+            }
+            onYouTubePlayerAPIReady();
+        // END VIDEO STUFF   
+        }
+    }
+}); 
+
+angular.module('womenInAdf').directive('videoTwo', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function($scope, element, attr) {
+        // VIDEO STUFF
+
+            // global variable for the player
+            var playerTwo;
+
+            // this function gets called when API is ready to use
+            function onYouTubePlayerAPIReady() {
+              // create the global player from the specific iframe (#video)
+              playerTwo = new YT.Player('videoTwo', {
+                events: {
+                  // call this function when player is ready to use
+                  'onReady': onPlayerReady
+                }
+              });
+            }
+            function onPlayerReady(event) {
+                $scope.playVideoTwo = function() {
+                    //console.log('play two');
+                    //console.log(playerTwo.playVideo());
+                    $scope.playBtnTwo = true;
+                    playerTwo.playVideo();
+                };  
+
+            }
+            onYouTubePlayerAPIReady();
+        // END VIDEO STUFF   
+        }
+    }
+}); 
+
+angular.module('womenInAdf').directive('videoThree', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function($scope, element, attr) {
+        // VIDEO STUFF
+
+            // global variable for the player
+            var playerThree;
+
+            // this function gets called when API is ready to use
+            function onYouTubePlayerAPIReady() {
+              // create the global player from the specific iframe (#video)
+              playerThree = new YT.Player('videoThree', {
+                events: {
+                  // call this function when player is ready to use
+                  'onReady': onPlayerReady
+                }
+              });
+            }
+            function onPlayerReady(event) {
+                $scope.playVideoThree = function() {
+                    //console.log('play three');
+                    //console.log(playerThree.playVideo());
+                    $scope.playBtnThree = true;
+                    playerThree.playVideo();
+                };  
+
+            }
+            onYouTubePlayerAPIReady();
+        // END VIDEO STUFF   
+        }
+    }
+}); 
+
+
+

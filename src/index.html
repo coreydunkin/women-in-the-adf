@@ -6,10 +6,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+    <link rel="stylesheet" href="assets/fonts/defencejobs-icons-social.css">
     <!-- build:css({.tmp,src}) styles/vendor.css -->
     <link rel="stylesheet" href="app/vendor.css">
-    <link rel="stylesheet" href="assets/fonts/defencejobs-icons.css">
     <link rel="stylesheet" type="text/css" href="assets/non-bower-plugins/flexslider/flexslider.css">
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
@@ -25,9 +24,9 @@
     <!-- endbuild -->
 </head>
 
-<!-- a body tag must always be present for "browser-sync" to work, for this reason we have a body tag inside the html, however for ie8/ie9 it will break having a duplicate body tag, so this needs to be commented out for ie8/9 to work, conditional tags don't appear to work either -->
-<!--<body>
-</body>-->
+<!-- a body tag must always be present for "browser-sync" to work, for this reason we have a body tag inside the html, however for ie8/ie9 it will break having a duplicate body tag, so this needs to be commented out for ie8/9 to work, conditional tags don't appear to work either
+<body>
+</body> -->
 
   <div class="women" ng-controller="ContainerCtrl">
     <!-- place in respond.js for ie8 --> 
@@ -40,14 +39,22 @@
     <!--[if lt IE 9]>
     <div class="ie8">
     <![endif]-->
-
+    
+    <!--[if lte IE 9]>
+    <div class="lteie9">
+    <![endif]-->
             
     <div ui-view class="view"></div>
+
+    <!--[if lte IE 9]>
+    </div>
+    <![endif]-->
+
 
     <!--[if lt IE 9]>
     </div>
     <![endif]-->    
-
+    
 
 
     <!-- build:js scripts/vendor.js -->

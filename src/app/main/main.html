@@ -34,7 +34,7 @@
     
     <div class="button-container" id="button-container">
       <p class="text-center moveforward">
-      <a ng-show="!countbtn" class="btn btn-lg active count" ng-click="pushAnswers()">Show my results<span class="arrow-right"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Get Started_DWYL" data-trlabel="Get Started_DWYL"></span></a>    
+      <a ng-show="!countbtn" class="btn btn-lg active count" ng-click="pushAnswers()" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Get Started_DWYL" data-trlabel="Get Started_DWYL">Show my results<span class="arrow-right"></span></a>    
       <a ng-show="countbtn" class="btn btn-lg count" ui-sref="results" disabled="disabled">Choose {{countdown}} more love<span ng-show="multipleLovesText">s</span> <span class="arrow-right"></span></a>
       </p>      
     </div>

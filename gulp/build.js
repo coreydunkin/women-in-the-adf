@@ -19,6 +19,7 @@ gulp.task('styles', ['wiredep'],  function () {
     .on('error', handleError)
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('.tmp'))
+    .pipe(gulp.dest('src'))
     .pipe($.size());
 });
 
@@ -133,7 +134,7 @@ gulp.task('replace', ['replaceHTML', 'replaceJS']);
 gulp.task('move', [], function() {
   console.log('Moving folder...');
   gulp.src('dist/**/**.*')
-  .pipe(gulp.dest('../../../static/Women/'));
+  .pipe(gulp.dest('../../www.defencejobs.gov.au/www/static/Women/'));
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'misc', 'replace', 'move']);

@@ -35,10 +35,14 @@
 
     <h1><div class="you">YOU</div> SAID YOU'D LOVE TO</h1>
     <h3 class="titles">{{loveTitleOne}}, {{loveTitleTwo}} AND {{loveTitleThree}}.</h3>
-    <a href="" id="next-one" class="next-arrow" smooth-scroll-jquery target="next-two" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href="" id="next-one" class="next-arrow" smooth-scroll-jquery target="next-two" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
     <hr />  
 
     <p class="summary">As part of the Australian Defence Force you’ll get the opportunity to {{longBlurbOne}} You’ll get the chance to {{longBlurbTwo}} Plus in every role you’ll get {{shortBlurbOne}}</p>
+      
+
+ 
+
 
 
     <h3 class="roles-header">WE THINK YOU'LL LOVE THESE ROLES:</h3> 
@@ -60,7 +64,7 @@
     <div class="rolescontainer">
 
       <ul>
-        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items in jobs.WyltPublishedJobs" ng-show="{{items.isPrimaryJob}}" data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}" on-finish-render="ngRepeatFinished">
+        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items in jobs.WyltPublishedJobs" ng-show="{{items.isPrimaryJob}}" data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}" on-finish-render="ngRepeatFinished" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Pin_Job_DWYL" data-trlabel="Primary">
                 <div data-job-entry-key="" class="job card {{items.serviceName}}">
 
                   <div class="front">
@@ -89,7 +93,7 @@
                  
                       
                     
-                    <img src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Save_Job_DWYL">
+                    <img src="assets/images/pin.jpg" alt="" class="pin">
                     <img src="assets/images/icon-close.jpg" alt="" class="close-card">
                     <div class="job  {{items.serviceName}}">
                     <div class="border"></div>
@@ -148,73 +152,90 @@
 
     <div id="next-two"></div>
 
-    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-three" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-three" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
 
-    <!-- VIDEO SECTION -->
 
     <!-- VIDEO 1 -->
-    <div class="videosection one">
+    <div class="videosection one" video-one>
       <h2 id="title-one">{{titleOne}}</h2>
       <p class="videotext text-center" ng-bind-html="videoOneText"></p>
       <br>  
       <div class="vidcontainer">
 
-        <a ng-click="playerOne.playVideo();hidePlaceHolder();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
+        <div class="component-embed-video play-video">
             <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-            <div class="imgPlaceholder" ng-show="placeHolder()" style="background-image: url()">
+            <!--<div class="imgPlaceholder" ng-show="placeHolder()" style="background-image: url()">
               <div class="playbtn"></div>
-            </div>
+            </div>-->
       
-            <youtube-video video-url="videoOne" player="playerOne" player-vars="playerVars"></youtube-video>      
-        </a>
+            <!-- <youtube-video video-url="videoOne" player="playerOne" player-vars="playerVars"></youtube-video> --> 
+            
+          <a href="" class="videoBtn" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoOne}}" style="visibility: visible;" ng-click="playVideoOne()" ng-hide="playBtnOne"> </a>
+
+            <iframe id="videoOne" src="{{trustSrc(videoOne)}}" player="playerOne" player-vars="playerVars" frameborder="0" allowfullscreen></iframe>                 
+  
+   
+        </div>
 
       </div>
 
 
-    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     </div>    
     <!-- END VIDEO 1 -->
 
     <!-- VIDEO 2 -->
-    <div class="videosection two">
+    <div class="videosection two" video-two>
       <h2 id="title-one">{{titleTwo}}</h2>
       <p class="videotext text-center" ng-bind-html="videoTwoText"></p>
       <br>  
       <div class="vidcontainer">
-        <a ng-click="playerTwo.playVideo();hidePlaceHolder();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
+        <div class="component-embed-video play-video">
             <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url()">
+            <!--<div class="imgPlaceholder" ng-show="placeHolder()" style="background-image: url()">
               <div class="playbtn"></div>
-            </div>
+            </div>-->
       
-            <youtube-video video-url="videoTwo" player="playerTwo" player-vars="playerVars"></youtube-video> 
-        </a>
+            <!-- <youtube-video video-url="videoOne" player="playerOne" player-vars="playerVars"></youtube-video> --> 
+            
+          <a href="" class="videoBtn" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoTwo}}" style="visibility: visible;" ng-click="playVideoTwo()" ng-hide="playBtnTwo"> </a>
+          
+            <iframe id="videoTwo" src="{{trustSrc(videoTwo)}}" player="playerTwo" player-vars="playerVars" frameborder="0" allowfullscreen></iframe>                 
+  
+   
+        </div>
       </div>
 
-    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     </div>
     <!-- END VIDEO 2 -->
 
     <!-- VIDEO 3 -->
-    <div class="videosection three">
+    <div class="videosection three" video-three>
       <h2 id="title-one">{{titleThree}}</h2>
       <p class="videotext text-center" ng-bind-html="videoThreeText"></p>
       <br>  
       <div class="vidcontainer">
-        <a ng-click="playerThree.playVideo();hidePlaceHolder();" class="component-embed-video play-video" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoName}}" style="visibility: visible;">
+        <div class="component-embed-video play-video">
             <!--<img ng-show="placeHolder" src="assets/images/poster-women-in-the-army.jpg" alt="">-->
-            <div class="imgPlaceholder" ng-show="placeHolder" style="background-image: url()">
+            <!--<div class="imgPlaceholder" ng-show="placeHolder()" style="background-image: url()">
               <div class="playbtn"></div>
-            </div>
+            </div>-->
       
-            <youtube-video video-url="videoThree" player="playerThree" player-vars="playerVars"></youtube-video>      
-        </a>
+            <!-- <youtube-video video-url="videoOne" player="playerOne" player-vars="playerVars"></youtube-video> --> 
+            
+          <a href="" class="videoBtn" data-tracking="true" data-trignore="true" data-trcategory="{{trackingCategory}}" data-traction="Play" data-trlabel="{{videoThree}}" style="visibility: visible;" ng-click="playVideoThree()" ng-hide="playBtnThree"> </a>
+          
+            <iframe id="videoThree" src="{{trustSrc(videoThree)}}" player="playerOne" player-vars="playerVars" frameborder="0" allowfullscreen></iframe>                 
+  
+   
+        </div>
       </div>
 
-    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-four" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     </div>
     <!-- END VIDEO 3 -->
@@ -262,7 +283,7 @@
     </div>  
 
 
-    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
 
 
@@ -305,7 +326,7 @@
     </div>
 
 
-    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     </div>  
     <!-- END IMAGE GALLERY 2 -->
@@ -346,7 +367,7 @@
 
     </div>
 
-    <a href=""  class="next-arrow second" smooth-scroll-jquery target="next-five" offset="0" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
+    <a href=""  class="next-arrow second" smooth-scroll-jquery target="next-five" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
 
     </div>  
@@ -360,7 +381,17 @@
     <!-- POSTCARD SECTION -->
     <!-- POSTCARD 1 -->
     <div class="postcardsection one">
+
+
+
     <div class="postcard-gallery" id="title-three">
+
+      <div class="copy col-md-6">
+        <h2 class="title-three">{{titleOne}}</h2>
+        <p ng-bind-html="postcardOneText"></p>    
+      </div>
+      <div class="clearfix"></div>   
+       
       <div class="main" class="col-md-12">
         <img src="{{postcardOneMain}}" alt="">
       </div>
@@ -371,11 +402,8 @@
       <div class="subtwo" data-1000="top:110%;" data-3500="top:-5%;">
         <img src="{{postcardOneSubTwo}}" alt="">
       </div>
-      <div class="copy col-md-6">
-        <h2 class="title-three">{{titleOne}}</h2>
-        <p ng-bind-html="postcardOneText"></p>    
-      </div>
 
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     </div><!-- end .postcard-gallery -->
   <div class="clearfix"></div>
@@ -387,7 +415,16 @@
     <div class="clearfix"></div>
     <!-- POSTCARD 2 -->
     <div class="postcardsection two">
+
+
     <div class="postcard-gallery" id="title-three">
+
+      <div class="copy col-md-6">
+        <h2 class="title-three">{{titleTwo}}</h2>
+        <p ng-bind-html="postcardTwoText"></p>    
+      </div>
+      <div class="clearfix"></div>
+
       <div class="main" class="col-md-12">
         <img src="{{postcardTwoMain}}" alt="">
       </div>
@@ -398,11 +435,8 @@
       <div class="subtwo" data-1000="top:110%;" data-3500="top:-5%;">
         <img src="{{postcardTwoSubTwo}}" alt="">
       </div>
-      <div class="copy col-md-6">
-        <h2 class="title-three">{{titleTwo}}</h2>
-        <p ng-bind-html="postcardTwoText"></p>    
-      </div>
 
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     </div><!-- end .postcard-gallery -->
   
@@ -416,7 +450,16 @@
     <div class="clearfix"></div>
     <!-- POSTCARD 3 -->
     <div class="postcardsection three">
+
+
     <div class="postcard-gallery" id="title-three">
+
+      <div class="copy col-md-6">
+        <h2 class="title-three">{{titleThree}}</h2>
+        <p ng-bind-html="postcardThreeText"></p>    
+      </div>
+      <div class="clearfix"></div>
+    
       <div class="main" class="col-md-12">
         <img src="{{postcardThreeMain}}" alt="">
       </div>
@@ -427,11 +470,8 @@
       <div class="subtwo" data-1000="top:110%;" data-3500="top:-5%;">
         <img src="{{postcardThreeSubTwo}}" alt="">
       </div>
-      <div class="copy col-md-6">
-        <h2 class="title-three">{{titleThree}}</h2>
-        <p ng-bind-html="postcardThreeText"></p>    
-      </div>
 
+    <a href="" class="next-arrow second" smooth-scroll-jquery target="next-five" offset="-100" data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="Page_Down_Click" data-trlabel="Page_Down_Click"></a>
 
     </div><!-- end .postcard-gallery -->
   <div class="clearfix"></div>
@@ -465,7 +505,7 @@
       
       <div class="clearfix"></div>
       <ul class="secondary-roles">
-        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in secondaryJobs.WyltPublishedJobs" ng-hide="{{items.isPrimaryJob}}" data-service-name="{{items.serviceName}}"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}" on-finish-render="ngRepeatFinished">
+        <li job-card class="job-container col-md-4 col-sm-6 col-xs-12" ng-repeat="items  in secondaryJobs.WyltPublishedJobs" ng-hide="{{items.isPrimaryJob}}" data-service-name="{{items.serviceName}}"  data-num="{{items.jobEntryKey}}" data-job-filter-type="{{items.serviceName}}" render-jobs="{{}}" on-finish-render="ngRepeatFinished" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Pin_Job_DWYL" data-trlabel="Secondary">
                 <div data-job-entry-key="" class="job card {{items.serviceName}}">
 
                   <div class="front">
@@ -491,7 +531,7 @@
                   </div>
 
                   <div class="desc-indepth back">
-                    <img src="assets/images/pin.jpg" alt="" class="pin" data-tracking="true" data-trcategory="{{trackingCategory}}" data-traction="Save_Job_DWYL" data-trlabel="Secondary">
+                    <img src="assets/images/pin.jpg" alt="" class="pin">
                     <img src="assets/images/icon-close.jpg" alt="" class="close-card">
                     <div class="job  {{items.serviceName}}">
                     <div class="border"></div>
@@ -558,7 +598,7 @@
           <div class="button-container col-md-4 col-xs-12">
           <p class="text-center see-more">
           
-          <a href="/navy/#findjob" class="btn btn-lg navy"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Navy" data-trlabel="See All Roles_Navy">navy roles <span class="arrow-right"></span></a>    
+          <a href="http://www.defencejobs.gov.au/navy/#findjob" class="btn btn-lg navy"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Navy" data-trlabel="See All Roles_Navy">navy roles <span class="arrow-right"></span></a>    
           
           </p>      
         </div>
@@ -566,7 +606,7 @@
         <div class="button-container col-md-4 col-xs-12">
           <p class="text-center see-more">
           
-          <a href="/army/#findjob" class="btn btn-lg army"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Army" data-trlabel="See All Roles_Army">army roles <span class="arrow-right"></span></a>    
+          <a href="http://www.defencejobs.gov.au/army/#findjob" class="btn btn-lg army"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_Army" data-trlabel="See All Roles_Army">army roles <span class="arrow-right"></span></a>    
           
           </p>      
         </div>
@@ -574,7 +614,7 @@
         <div class="button-container col-md-4 col-xs-12">
           <p class="text-center see-more">
           
-          <a href="/airforce/#findjob" class="btn btn-lg airforce"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_AirForce" data-trlabel="See All Roles_AirForce">air force roles <span class="arrow-right"></span></a>    
+          <a href="http://www.defencejobs.gov.au/airforce/#findjob" class="btn btn-lg airforce"  data-tracking="true"  data-trcategory="{{trackingCategory}}" data-traction="See All Roles_AirForce" data-trlabel="See All Roles_AirForce">air force roles <span class="arrow-right"></span></a>    
           
           </p>      
         </div>   
@@ -585,6 +625,8 @@
       <div class="top-arrow"></div>
       <span>BACK TO TOP</span>
     </a>
+
+    <p class="sub text-center">Sentiments and information shared by participants in an online survey of 50 Australian women carried out by eDentify Pty Ltd in September 2014.</p>
 
 <!--     <div class="button-container">
       <p class="text-center see-more">

@@ -17,6 +17,10 @@ $armyColor: #f1b701;
 $navyColor: #9b9fac;
 $airColor: #6894bf;
 
+.woomba {
+	width: 10px;
+}
+
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -64,6 +68,9 @@ $airColor: #6894bf;
 @mixin webkit-fix {
     -webkit-transform: scale3d(1,1,1);
 }
+
+
+
 @mixin transform-scale($x:1, $y:1){
     -webkit-transform: scale($x, $y);
     -moz-transform   : scale($x, $y);
@@ -115,6 +122,14 @@ $airColor: #6894bf;
 	.loader {
 		display: none;
 	}
+}
+
+p.sub {
+  text-align: center;
+  font-style: italic;
+  max-width: 610px;
+  width: 90%;
+  margin: 0 auto 50px auto;
 }
 
 .youtube-iphone-tester {
@@ -222,10 +237,12 @@ $airColor: #6894bf;
 }
 .ng-leave {
 	transition: 0.5s;
+	opacity:0;
 }
 .ng-leave-active {
 	opacity:0;
 }
+
 
 // fonts
 @font-face {
@@ -257,8 +274,8 @@ $airColor: #6894bf;
 
 @font-face {
     font-family: 'DefenceJobsIcons';
-    src: url("#{$font-url}DefenceJobsIcons.eot");
-    src: url("#{$font-url}DefenceJobsIcons.eot?#iefix") format("embedded-opentype"), url("/global/webfonts/icons/DefenceJobsIcons.woff") format("woff"), url("/global/webfonts/icons/DefenceJobsIcons.ttf") format("truetype"), url("/global/webfonts/icons/DefenceJobsIcons.svg#DefenceJobsIcons") format("svg");
+    src: url("/global/webfonts/icons/DefenceJobsIcons.eot");
+    src: url("/global/webfonts/icons/DefenceJobsIcons.eot?#iefix") format("embedded-opentype"), url("/global/webfonts/icons/DefenceJobsIcons.woff") format("woff"), url("/global/webfonts/icons/DefenceJobsIcons.ttf") format("truetype"), url("/global/webfonts/icons/DefenceJobsIcons.svg#DefenceJobsIcons") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -294,6 +311,7 @@ $airColor: #6894bf;
 	top: 0px;
 	right: 0;
 	position: absolute;
+
 	li {
 		padding: 0;
 		&.mobile-share {
@@ -351,12 +369,9 @@ body {
 
 }
 
-
-
-
-
 .women {
 	min-height: 100vh;
+	//border: 10px solid green;
 }
 
 .main-page {
@@ -405,6 +420,10 @@ ul li {
 
 .flexslider .slides>li {
 	padding: 0!important;
+}
+
+.flexslider {
+	margin: 0;
 }
 
 ul li.job-container {
@@ -494,7 +513,8 @@ a.btn {
 // header styles
 .herobg {
 	position: relative;
-	background: url(#{$image-url}header-hero.jpg) no-repeat center center fixed;
+	background: url(#{$image-url}header-hero.jpg) no-repeat center center;
+	background-attachment: fixed;
 	overflow: hidden;	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -510,7 +530,7 @@ a.btn {
 		height: 100%;
 		overflow: hidden;
 		z-index: 0;
-
+		
 		.hero_video {
 			position: absolute;
 			bottom: 50%;
@@ -528,18 +548,60 @@ a.btn {
 	}
 }
 
+.ie9 {
+	.video-container {
+		.hero_video {
+			top: 0 !important;
+			left: 0 !important;
+			transform: translateX(0%) translateY(0%);			
+			//height:100% !important;
+  			//width:100% !important;
+  			source {
+  			}
+		}
+	}
+}
+
 
 .jumbotron {
 	margin-bottom: 0;
 	background: url(#{$image-url}line-bg.png) repeat;
 	height: 100vh;
+	width: 100%;
 	position: relative;
+	vertical-align: middle;
+
+	.center-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: table;
+		height: 100%;
+		width: 100%;
+		padding: 10px;
+		vertical-align: middle;
+
+		.inner {
+			display: table-cell;
+			width: 100%;
+			vertical-align: middle;
+			text-align: center;
+		}
+	}
+
+	.container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		z-index: 10;
+	}
 
 	h1 {
 		color: $offwhite;
 		font-size: 120px;
 		font-family: ZurichBT-BoldCondensed;
-		margin-top: 160px;
+		//margin-top: 160px;
 		text-shadow: 0 0 10px rgba(0,0,0,0.1);
 		max-width: 1000px;
 		margin-left: auto;
@@ -753,7 +815,6 @@ a.btn {
 		}
 	} 
 	.thumbnail {
-
 		height: 190px;
 		margin-bottom: 0;
 		border: 1px solid white;
@@ -763,6 +824,7 @@ a.btn {
 		overflow: hidden;
 		width: 100%;
 		position: relative;
+
 		&.oneline {
 			.caption {
 
@@ -811,6 +873,7 @@ a.btn {
 				width: 100%;
 				margin: 0 auto;
 				line-height: 1em;
+				padding: 0;
 			}
 		}
 		.tick {
@@ -1004,7 +1067,7 @@ a.btn {
 		font-size: 90px;
 		text-transform: uppercase;
 		&.title-three {
-			font-size: 72px;
+			//font-size: 72px;
 		}		
 	}
 	h3 {
@@ -1026,6 +1089,8 @@ a.btn {
 		border-color: $grey;
 	}
 	a.next-arrow {
+		position: relative;
+		z-index:5;
 		background: url(#{$image-url}hr-arrow.jpg) no-repeat;
 		width: 122px;
 		height: 39px;
@@ -1034,14 +1099,14 @@ a.btn {
 		background-size: 100% auto;
 		&.second {
 			display: block;
-			margin: 0 auto;
+			margin: 50px auto;
 			//border-top: 1px solid $grey;
 		}
 	}
 
 	.negative-next {
 		position: relative;
-		top: -40px;
+		top: -90px;
 	}
 
 	p.summary {
@@ -1063,6 +1128,8 @@ a.btn {
 		display: block;
 		margin: 0 auto;
 		margin-bottom: 23px;
+		position: relative;
+
 		.content-container {
 			position: relative;
 			height: 394px;
@@ -1119,35 +1186,41 @@ a.btn {
 	.postcard-gallery {
 		max-width: 980px;
 		width: 100%;
-		margin: 80px auto;
+		margin: 20px auto;
 		position: relative;
 
 		.copy {
-			margin-left: 130px;
+			margin: 0 auto;
+			width: 90%;
+			max-width: 440px;
+			display: block;
+			float: none;
+			margin-bottom: 20px;			
 		}
 		.main {
 			overflow: hidden;
 			height: 500px;
-			border: 15px solid white;
+			border: 20px solid white;
 			img {
 				width: 100%;
 			}
 		}
 		.subone {
 			left: -30%;
-			max-width: 350px;
+			max-width: 350px; 
 		}
 		.subtwo {
-			right: -23%;
+			right: -26%;
 			max-width: 500px;
 			height: 300px;
 			overflow: hidden;
 		}
 		.subone, .subtwo {
 			position: absolute;
-			border: 20px solid white;
+			border: 10px solid white;
 			z-index: 500;
 			top: 330px;
+			border: 10px solid white;
 			img {
 				width: 100%;
 			}
@@ -1207,6 +1280,8 @@ a.btn.see-all {
 	position: relative;
 	max-width: 890px;
 	margin: 0 auto;
+	overflow: hidden;
+
 	.slider {
 		.flex-viewport {
 			border: 20px solid white;
@@ -1265,15 +1340,19 @@ a.btn.see-all {
 	}
 }
 .carousel {
-	margin-top: -133px;
-	margin-right: 20px;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	//margin-top: -133px;
+	//margin-right: 20px;
+	margin: 0;
 	width: 400px;
-	float: right;
+	//float: right;
 	background: url(#{$image-url}dots.jpg) repeat;
 	border: none;
 	padding: 3px 24px;
 	border-radius: 0px;
-	height: 53px;
+	//height: 53px;
 	.flex-prev {
 
 	}
@@ -1318,9 +1397,11 @@ a.btn.see-all {
 
 		hr {
 			border-color: #cfcece;
+			opacity: 0.3;
 		}
 		.inner {
-			min-height: 150px;
+			  min-height: 170px;
+			  max-height: 170px;
 			//word-wrap: break-word;
 
 			h3 {
@@ -1352,6 +1433,7 @@ a.btn.see-all {
 
 	.front {
 		background: white;
+
 		.arrow {
 			display: none;
 		}
@@ -1656,21 +1738,36 @@ a.back-top {
 	}
 
 }
+
+
 @media (max-width: 767px) {
 .herobg {
 	position: relative;
 	z-index: 9999;
+	background: url(#{$image-url}header-hero-mobile.jpg) no-repeat center center ;
+	background-attachment: inherit;
+	background-size: auto 100% !important;
+
 	.jumbotron {
 		padding: 10px;
+
+		.center-content {
+			display: block;
+
+			.inner {
+				display: block;
+			}
+		}
+
 		p {
 			font-size: 17px;
 		}
 		h1 {
 			font-size: 50px;
 			margin-top: 66px;
-			max-width: 300px;
+			//max-width: 300px;
 			width: 100%;
-			margin: 70px auto 0 auto;
+			margin: 130px auto 0 auto;
 
 			.dwyl-logo {
 				width: 100%;
@@ -1691,12 +1788,20 @@ a.back-top {
 				margin-right: -35px;				
 			}
 		}
+
+		a.btn {
+			width: 100%;
+		}
 	}
 }
 
 #start {
 	padding-bottom: 60px;
-}	
+}
+
+	#secondaryroles {
+		margin-top: -80px;
+	}
 
 
 }
@@ -1762,6 +1867,11 @@ a.back-top {
 body {
 
 }
+
+.loves .caption h3 {
+	top: 10px !important;
+}
+
 .women {
 	//height: 895px;
 	//overflow-x: scroll;
@@ -1898,8 +2008,21 @@ font-weight: 300;
 	}
 }
 
+.ie9 {
+	.social {
+		li {
+			a {
+				
+				span {
+
+				}
+			}
+		}
+	}
+}
 
 .intro {
+	padding: 10px 0 30px 0;
 	h1 {
 		font-size: 3.6em;
 	}
@@ -1952,9 +2075,11 @@ a.btn.see-all {
 
 .loves {
 	margin-bottom: 5px;
+	
 	&[hover="hover"] {
 		&:hover {
 
+			
 			.thumbnail {
 				background: white;
 				img {
@@ -1965,7 +2090,7 @@ a.btn.see-all {
 					transform: scale(1, 1);
 					h3 {
 						transform: scale(1,1);
-
+						padding: 0 !important;
 					}
 
 				}
@@ -2057,6 +2182,13 @@ a.btn.see-all {
 	}
 	}
 	&.active {
+
+		&:hover {
+			.thumbnail {
+				background: rgba(123,123,123,0.5);
+			}
+			
+		}
 		.thumbnail {
 			background: rgba(123,123,123,0.5);
 			img {
@@ -2196,7 +2328,7 @@ a.btn.see-all {
 	.postcard-gallery {
 
 		.copy {
-			margin-left: 0px;
+			//margin-left: 0px;
 		}
 
 		.main {
@@ -2210,7 +2342,7 @@ a.btn.see-all {
 
 .slider {
 	.flex-control-nav {
-		bottom: 4px;
+		bottom: 24px;
 	}
 	ol.flex-control-nav {
 		display: block;
@@ -2349,9 +2481,10 @@ ul li.job-container {
 				padding-left: 0;
 			}
 
-			h2 {
-				font-size: 14px;
-				font-weight: normal;
+			h2 {				
+  				font-size: 13px;
+  				font-weight: normal;
+  				line-height: 0.95em;				
 			}
 		}
 
@@ -2510,8 +2643,9 @@ ul li.job-container {
 
 @media (max-width : 767px) and (orientation : portrait) {
 	.herobg {
-		background-size: 1300px auto;
-		background-position: top center;
+		//background-size: 1300px auto;
+		//background-position: top center;
+
 	}
 }
 
@@ -2521,10 +2655,10 @@ and (min-device-width : 320px)
 and (max-device-width : 568px) 
 and (orientation : landscape) { /* STYLES GO HERE */
 	.herobg {
-		background-size: 1300px auto;
-		background-position: top center;
+		//background-size: 1300px auto !important;
+		//background-position: top center !important;
 		.jumbotron {
-			height: 640px;
+			//height: 640px;
 		}
 	}
 }
@@ -2533,8 +2667,14 @@ and (orientation : landscape) { /* STYLES GO HERE */
 /* Smartphones small (portrait) ----------- */
 @media (max-width : 320px) {
 	.herobg {
-		background-size: 1300px auto;
-		background-position: top center;
+		//background-size: 1300px auto;
+		//background-position: top center;
+		//background-image: url(#{$image-url}header-hero-mobile.jpg) center center no-repeat !important;
+		
+		background: url(#{$image-url}header-hero-mobile.jpg) no-repeat center center ;
+
+		background-size: auto 100% !important;
+	
 		.jumbotron {
 			height: 640px;
 		}
@@ -2655,10 +2795,35 @@ and (orientation : landscape) { /* STYLES GO HERE */
 
 }
 
+a.videoBtn {
+	width: 100%;
+	height: 100%;
+	//outline: 1px solid red;
+	position: absolute;
+	display: block;
+	top: 0;
+	z-index: 999;
+}
+
 .touch {
+	a.videoBtn {
+		display: none;
+	}
+
+	.jumbotron {
+		background: none
+	}
+
 	.herobg {
 		.video-container {
 			display: none;
 		}
 	}
+
+	.save-job {
+		display: none !important;
+	}
 }
+
+
+
