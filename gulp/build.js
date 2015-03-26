@@ -58,11 +58,11 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
       addPrefix: '../'
     }))
     .pipe(assets = $.useref.assets())
-    //.pipe($.rev())
-    //.pipe(jsFilter)
-    //.pipe($.ngAnnotate())
-    //.pipe($.uglify({preserveComments: $.uglifySaveLicense}))
-    //.pipe(jsFilter.restore())
+    .pipe($.rev())
+    .pipe(jsFilter)
+    .pipe($.ngAnnotate())
+    .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
+    .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.replace('bower_components/bootstrap-sass-official/assets/fonts/bootstrap','fonts'))
     //.pipe($.csso())
@@ -82,12 +82,7 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
 });
 
 gulp.task('images', function () {
-  return gulp.src('src/assets/images/**/*')
-    .pipe($.cache($.imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      interlaced: true
-    })))
+  return gulp.src('src/assets/images/*')
     .pipe(gulp.dest('dist/assets/images'))
     .pipe($.size());
 });
@@ -114,27 +109,27 @@ var moveProject = [
   'dist'
 ];
 
-gulp.task('replaceHTML', [], function() {
-  gulp.src('dist/index.html')
-    .pipe(replace('<link rel="stylesheet" href="', '<link rel="stylesheet" href="/static/Women/'))
-    .pipe(replace('<script src="', '<script src="/static/Women/'))
-    .pipe(replace('<img src="assets/', '<img src="/static/Women/assets/'))
-    .pipe(gulp.dest('dist/'));
-});
+// gulp.task('replaceHTML', [], function() {
+//   gulp.src('dist/index.html')
+//     .pipe(replace('<link rel="stylesheet" href="', '<link rel="stylesheet" href="/static/Women/'))
+//     .pipe(replace('<script src="', '<script src="/static/Women/'))
+//     .pipe(replace('<img src="assets/', '<img src="/static/Women/assets/'))
+//     .pipe(gulp.dest('dist/'));
+// });
 
-gulp.task('replaceJS', [], function() {
-  gulp.src('dist/scripts/app.js')
-    .pipe(replace('="assets/', '="/static/Women/assets/'))
-    .pipe(replace('background-image: url(assets/', 'background-image: url(/static/Women/assets/'))
-    .pipe(gulp.dest('dist/scripts/'));
-});
+// gulp.task('replaceJS', [], function() {
+//   gulp.src('dist/scripts/app.js')
+//     .pipe(replace('="assets/', '="/static/Women/assets/'))
+//     .pipe(replace('background-image: url(assets/', 'background-image: url(/static/Women/assets/'))
+//     .pipe(gulp.dest('dist/scripts/'));
+// });
 
-gulp.task('replace', ['replaceHTML', 'replaceJS']);
+// gulp.task('replace', ['replaceHTML', 'replaceJS']);
 
-gulp.task('move', [], function() {
-  console.log('Moving folder...');
-  gulp.src('dist/**/**.*')
-  .pipe(gulp.dest('../../www.defencejobs.gov.au/www/static/Women/'));
-});
+// gulp.task('move', [], function() {
+//   console.log('Moving folder...');
+//   gulp.src('dist/**/**.*')
+//   .pipe(gulp.dest('../../www.defencejobs.gov.au/www/static/Women/'));
+// });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc', 'replace', 'move']);
+gulp.task('build', ['html', 'images', 'fonts', 'misc']);
